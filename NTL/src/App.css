@@ -1,6 +1,12 @@
 @import url('https://fonts.cdnfonts.com/css/digital-numbers');
 @import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
 
+:root {
+    font-size: 16px;
+
+    --watch-hands: radial-gradient(ellipse at 51% 50%, #626262 0%, #000000 94%);
+}
+
 html {
     background: -moz-linear-gradient(90deg, #000000 29%, #1F0000 60%); 
 
@@ -26,9 +32,22 @@ body {
 }
 
 
+@media screen and (min-width: 2500px) {
+    :root {
+        font-size: 20px;
+    }    
+}
+
+
 @media screen and (max-width: 1150px) {
     body {
         margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        font-size: 14px;
     }
 }
 
@@ -102,7 +121,7 @@ body {
 .yellow-to-gray-90deg {
     background: #FF9900;
     background: linear-gradient(to right, #FF9900 43%, #767676 56%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
+
