@@ -40,8 +40,8 @@
 
 .ntl__navbar-menu li {
     font-size: 1.25rem;
-    font-family: 'metal', sans-serif;
-    
+    font-family: "Noto Sans", sans-serif;
+    margin-top: 0.3rem;
 }
 
 .ntl__navbar-menu a {
@@ -68,7 +68,7 @@
 
     .ntl__navbar-menu.show {
         display: flex;
-        
+        z-index: 4;
     }
 
     .ntl__navbar-menu li {

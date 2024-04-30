@@ -1,34 +1,30 @@
 @import url('https://fonts.cdnfonts.com/css/digital-numbers');
-@import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metal&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
 :root {
     font-size: 16px;
 
     --watch-hands: radial-gradient(ellipse at 51% 50%, #626262 0%, #000000 94%);
+
+    overflow-x: hidden;
 }
 
 html {
-    background: -moz-linear-gradient(90deg, #000000 29%, #1F0000 60%); 
-
-    /* safari 5.1+,chrome 10+ */
-    background: -webkit-linear-gradient(90deg, #000000 29%, #1F0000 60%);
-
-    /* opera 11.10+ */
-    background: -o-linear-gradient(90deg, #000000 29%, #1F0000 60%);
-
-    /* ie 6-9 */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1F0000', endColorstr='#000000', GradientType=0 );
-
-    /* ie 10+ */
-    background: -ms-linear-gradient(90deg, #000000 29%, #1F0000 60%);
-
-    /* global 94%+ browsers support */
     background: linear-gradient(90deg, #000000 29%, #1F0000 60%);
+
+    overflow-y: auto; /* Auto will show the scrollbar only when needed */
+    scrollbar-width: none; /* Hide the scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide the scrollbar in IE/Edge */
 }
 
 body {
     margin: auto 12.5rem;
     padding: 0;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar in WebKit browsers (Chrome, Safari) */
 }
 
 
@@ -125,3 +121,68 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.gray-red-gray-font-90deg {
+    background: linear-gradient(90deg, #141B1F 0%, #9D131E 60%, #141B1F 100%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}
+
+.black-red-0deg {
+    background: linear-gradient(0deg, #550E12 0%, #000000 35%);
+}
+
+.black-blue-180deg {
+    background: linear-gradient(180deg, #0F1417 35%, #016AA6 74%);
+}
+
+.black-green-180deg {
+    background: linear-gradient(180deg, #0F1417 35%, #0E3017 74%);
+}
+
+.gray-green-gray-font-90deg {
+    background: linear-gradient(90deg, #141B1F 0%, #00721E 60%, #141B1F 100%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}
+
+.gray-blue-gray-font-90deg {
+    background: linear-gradient(90deg, #141B1F 0%, #006BA8 60%, #141B1F 100%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}
+
+.black-green-0deg {
+    background: linear-gradient(0deg, #0E3017 0%, #000000 35%);
+}
+
+.black-blue-0deg {
+    background: linear-gradient(0deg, #016AA6 0%, #000000 35%);
+}
+
+.red-blue-green-0deg {
+    background: linear-gradient(0deg, #141B1F 80%, #016AA6 100%);
+}
+
+.blue-white-font {
+    background: linear-gradient(180deg, #00D4C1 20%, #FFFFFF 80%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}
+
+.green-white-font {
+    background: linear-gradient(180deg, #00D4C1 20%, #FFFFFF 80%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}
+
+.red-white-font {
+    background: linear-gradient(180deg, #d41900 20%, #FFFFFF 80%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}
