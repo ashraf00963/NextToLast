@@ -5,6 +5,7 @@ import GreenCollection from "./green-collection";
 import BlueCollection from "./blue-collection";
 import Footer from "./footer";
 import Login from "./Login/login";
+import Register from "./Login/register";
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     GreenCollection,
     BlueCollection,
     Footer,
-    Login
+    Login,
+    Register
 };

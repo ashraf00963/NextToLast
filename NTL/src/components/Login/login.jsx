@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-function Login () {
+function Login ({ onLogin }) {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ error, setError ] = useState(null);
     const [ loggedIn, setLoggedIn ] = useState(false);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(loggedIn) {
+            navigate('/');
+        }
+    }, [ loggedIn, navigate ]);
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -19,7 +28,7 @@ function Login () {
         e.preventDefault();
 
         try {  
-            const response = await fetch('http://localhost/3001/login', {
+            const response = await fetch('http://localhost:3001/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,6 +45,7 @@ function Login () {
             if(data){
                 console.log('Login successful');
                 setLoggedIn(true);
+                onLogin();
                 setError(null);
             } else {
                 console.error('Invalid response from server');
@@ -43,26 +53,22 @@ function Login () {
             }
         } catch(error) {
             console.log('Login failed', error.message);
-            setError(error);
+            setError(error.message);
         };
     };
 
-    const handlLoggedIn = () => {
-        setLoggedIn(!loggedIn);
-    }
-
     return (
-        <div className='ntl__login-page'>
-            <div className='ntl__login-page_card'>
+        <div className='ntl__page'>
+            <div className='ntl__page_card'>
                 <h1>Login</h1>
-                <div className='ntl__login-page_input'>
-                    <label>Email address:</label>
-                    <input type='Email' id='Email' value={email} onChange={handleEmail} placeholder='Email' />
-                    <label>Password: </label>
-                    <input type='password' id='password' value={password} onChange={handlePassword} placeholder='*******' />
-                    {error && <p>{error}</p>}
+                <p>{error}</p>
+                <div className='ntl__page_input'>
+                    <label>Email</label>
+                    <input type='email' id='email' value={email} onChange={handleEmail} placeholder='email address' required />
+                    <label>Password</label>
+                    <input type='password' id='password' value={password} onChange={handlePassword} placeholder='*******' required />
                 </div>
-            <button onClick={handleSubmit}>Login</button>            
+                <button onClick={handleSubmit}>Login</button>               
             </div>
         </div>
     )
