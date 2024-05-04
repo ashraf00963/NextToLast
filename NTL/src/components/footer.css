@@ -133,15 +133,20 @@
     .footer__rights p {
         margin: 1rem;
         font-size: 0.8rem;
+        padding-left: 1rem;
     }
 
     .social-media-icons {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        padding: 0;
     }
 
-    .social-media-icons img {
-        width: 50%;
+    .social-media-icons li {
+        width: 5rem;
+        height: 5rem;
     }
+
+    
 }
