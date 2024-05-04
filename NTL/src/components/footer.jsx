@@ -1,30 +1,71 @@
+import { useState } from 'react';
+import { Facebook, Instagram, X } from '../assets';
 import './footer.css';
 
 function Footer () {
+    const [isOpen, setIsOpen] = useState({
+        section1: false,
+        section2: false,
+        section3: false,
+    });
+
+    const toggleIsOpen = (section) => {
+        setIsOpen(prevState => ({
+            ...prevState,
+            [section]: !prevState[section]
+        }));
+    }
+
     return (
-        <div className='footer red-blue-green-0deg '>
-            <div className='footer-section-one'>
-                <h2 className='blue-white-font'>Contact Us:</h2>
-                <p>123 Time Avenue, Suite 456 <br />Watchtown, Timezone 78901</p>
-                <p>Phone: 555-555-5555</p>
-                <p>Email: info@ntlstore.com</p>
+        <div className='footer'>
+            <div className='footer__help'>
+                <div className='footer__section-container'>
+                    <div className='footer__section' onClick={() => toggleIsOpen('section1')}>
+                        <p>Products</p>
+                        <span className='btn'>{isOpen.section1 ? '⮙' : '⮛' }</span>
+                    </div>
+                    <ul className={`footer__section-list ${isOpen.section1 ? 'isOpen' : ''}`}>
+                        <li><a href='#'>All NTL Watches</a></li>
+                        <li><a href='#'>Replacment Parts</a></li>
+                        <li><a href='#'>Misc</a></li>
+                    </ul>
+                </div>
+                <div className='footer__section-container'>
+                    <div className='footer__section' onClick={() => toggleIsOpen('section2')}>
+                        <p>Support</p>
+                        <span className='btn'>{isOpen.section2 ? '⮙' : '⮛' }</span>
+                    </div>
+                    <ul className={`footer__section-list ${isOpen.section2 ? 'isOpen' : ''}`}>
+                        <li><a href='#'>Customer Support</a></li>
+                        <li><a href='#'>Manuals</a></li>
+                        <li><a href='#'>Product Registration</a></li>
+                        <li><a href='#'>Daylight Savings Time</a></li>
+                    </ul>
+                </div>
+                <div className='footer__section-container'>
+                    <div className='footer__section'  onClick={() => toggleIsOpen('section3')}>
+                        <p>Corporate</p>
+                        <span className='btn'>{isOpen.section3 ? '⮙' : '⮛' }</span>
+                    </div>
+                    <ul className={`footer__section-list ${isOpen.section3 ? 'isOpen' : ''}`}>
+                        <li><a href='#'>Corporate Site</a></li>
+                        <li><a href='#'>Careers</a></li>
+                    </ul>
+                </div>
             </div>
-            <div className='footer-section-two'>
-                <h2 className='blue-white-font'>Connect With Us:</h2>
-                <p>Follow us on social media</p>
-                <p><a href='#'>Facebook</a> | <a href='#'>instgram</a> | <a href='#'>Twitter</a></p>
-            </div>
-            <div className='footer-section-three'>
-                <h2 className='blue-white-font'>Stay Updated:</h2>
-                <p>Subscribe to our newsletter for the latest updates.</p>
-                <div className='footer-newsletter'>
-                    <input type='text' placeholder='Email' />
-                    <button>Sign up</button>
+            <div className='footer__rights'>
+                <div class="footer__social-media-section">
+                    <ul class="social-media-icons">
+                        <li><a href="#"><img src={Facebook} alt="Facebook" /></a></li>
+                        <li><a href="#"><img src={Instagram} alt="Twitter" /></a></li>
+                        <li><a href="#"><img src={X} alt="Instagram" /></a></li>
+                    </ul>
+                    <p class="copyright">© 2024 NextToLast. All rights reserved</p>
                 </div>
             </div>
         </div>
     )
-}
+};
 
 
 export default Footer;

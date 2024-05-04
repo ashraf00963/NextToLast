@@ -24,14 +24,14 @@ function Navbar ({loggedIn, setLoggedIn}) {
                 &#9776;
             </button>
             <ul className={`ntl__navbar-menu ${showMenu ? 'show' : ''}`}>
-                <Link to='/'><li>Gallery</li></Link>
-                <Link to='/'><li>Products</li></Link>
+                <Link to='/'><li onClick={toggleMenu}>Gallery</li></Link>
+                <Link to='/'><li onClick={toggleMenu}>Products</li></Link>
                 {loggedIn ? (
                     <li><button onClick={handleLogout}>Logout</button></li>
                 ) : (
                     <>
-                        <Link to='/Login'><li>Login</li></Link>
-                        <Link to='/register'><li>Register</li></Link>
+                        <Link to='/Login'><li onClick={toggleMenu}>Login</li></Link>
+                        <Link to='/register'><li onClick={toggleMenu}>Register</li></Link>
                     </>
                 )}
             </ul>

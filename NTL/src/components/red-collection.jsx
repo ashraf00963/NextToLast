@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Red1, Red2, Red3 } from '../assets';
+import Arrow from './arrow';
 import './collections.css';
 
-function RedCollection () {
+function RedCollection ({ scrollLeft, scrollRight}) {
     return (
         <div className='collection-card black-to-red-180deg'>
             <h1 className='gray-red-gray-font-90deg'>NTL metallic Red Collection</h1>
@@ -22,6 +24,7 @@ function RedCollection () {
                     <p className='watch-name red-white-font'>RedSteel</p>
                 </div>
             </div>
+            <Arrow />
         </div>
     )
 }

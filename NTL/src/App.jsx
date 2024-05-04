@@ -1,5 +1,5 @@
 import { Navbar, Login, Register } from './components';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './Home';
 import './App.css';
 import { useState } from 'react';

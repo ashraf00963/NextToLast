@@ -198,13 +198,13 @@
 
 @media screen and (max-width: 500px) {
     :root {
-        --hour-h: 1.8rem;
+        --hour-h: 1.4rem;
         --hour-w: 0.2rem;
 
-        --minute-h: 2rem;
-        --minute-w: 0.2rem;
+        --minute-h: 1.6rem;
+        --minute-w: 0.18rem;
 
-        --second-h: 2.5rem;
+        --second-h: 1.5rem;
         --second-w: 0.1rem;
     }
 
@@ -213,20 +213,7 @@
         width: 0.3rem;
 
         top: -10%;
-        left: 8%;
+        left: -1%;
     }
 }
 
-@media screen and (max-width: 500px) {
-    :root {
-        --hour-h: 1.4rem;
-        --hour-w: 0.2rem;
-
-        --minute-h: 1.5rem;
-        --minute-w: 0.2rem;
-
-        --second-h: 1.5rem;
-        --second-w: 0.1rem;
-    }
-
-}
