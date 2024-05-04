@@ -22,7 +22,7 @@ function Footer () {
                 <div className='footer__section-container'>
                     <div className='footer__section' onClick={() => toggleIsOpen('section1')}>
                         <p>Products</p>
-                        <span className='btn'>{isOpen.section1 ? '⮙' : '⮛' }</span>
+                        <span className='btn'>{isOpen.section1 ? '△' : '▽' }</span>
                     </div>
                     <ul className={`footer__section-list ${isOpen.section1 ? 'isOpen' : ''}`}>
                         <li><a href='#'>All NTL Watches</a></li>
@@ -33,7 +33,7 @@ function Footer () {
                 <div className='footer__section-container'>
                     <div className='footer__section' onClick={() => toggleIsOpen('section2')}>
                         <p>Support</p>
-                        <span className='btn'>{isOpen.section2 ? '⮙' : '⮛' }</span>
+                        <span className='btn'>{isOpen.section2 ? '△' : '▽' }</span>
                     </div>
                     <ul className={`footer__section-list ${isOpen.section2 ? 'isOpen' : ''}`}>
                         <li><a href='#'>Customer Support</a></li>
@@ -45,7 +45,7 @@ function Footer () {
                 <div className='footer__section-container'>
                     <div className='footer__section'  onClick={() => toggleIsOpen('section3')}>
                         <p>Corporate</p>
-                        <span className='btn'>{isOpen.section3 ? '⮙' : '⮛' }</span>
+                        <span className='btn'>{isOpen.section3 ? '△' : '▽' }</span>
                     </div>
                     <ul className={`footer__section-list ${isOpen.section3 ? 'isOpen' : ''}`}>
                         <li><a href='#'>Corporate Site</a></li>
