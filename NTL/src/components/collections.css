@@ -121,7 +121,7 @@
     }
 
     .collection-card h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .cards {
@@ -143,9 +143,13 @@
     }
 
     .card:hover {
-        box-shadow: none;
         border-radius: 2% 2% 0 0;
         margin: 2rem;
     }
+    
+    .card .shopping-bag {
+        width: 1.3rem;
+    }
+
 }
 

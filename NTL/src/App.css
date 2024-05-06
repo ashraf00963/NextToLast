@@ -15,6 +15,7 @@ html {
     background: linear-gradient(90deg, #000000 29%, #1F0000 60%);
 
     overflow-y: auto; /* Auto will show the scrollbar only when needed */
+    overflow-x: hidden;
     scrollbar-width: none; /* Hide the scrollbar in Firefox */
     -ms-overflow-style: none; /* Hide the scrollbar in IE/Edge */
 }

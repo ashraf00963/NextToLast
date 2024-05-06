@@ -11,7 +11,7 @@ function GreenCollection () {
                     <div className='card__watch-info'>
                         <div className='card__titles'>
                             <p className='collection-name green-white-font'>NTL Green Collection</p>
-                            <p className='watch-name green-white-font'>Shadow In Between</p>
+                            <p className='watch-name green-white-font'>Shadow</p>
                         </div>
                         <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
                     </div>
