@@ -16,14 +16,14 @@
     position: relative;
 }
 
-.ntl__header video {
+.ntl__header .background-gif {
     width: 100%;
     height: auto;
     border-radius: 0.2rem;
     z-index: 0;
 }
 
-.ntl__header img {
+.ntl__header .watch-img {
     position: absolute;
     top: 50%;
     left: 50%;

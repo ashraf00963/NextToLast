@@ -1,4 +1,4 @@
-import Video from './Volcanic-Lava.mp4';
+import Video from './redlightning.gif';
 import Image from './Main-watch.png';
 import HourHand from './hours-hand.png';
 import MinuteHand from './minutes-hand.png';

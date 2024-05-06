@@ -54,13 +54,13 @@ function Footer () {
                 </div>
             </div>
             <div className='footer__rights'>
-                <div class="footer__social-media-section">
-                    <ul class="social-media-icons">
+                <div className="footer__social-media-section">
+                    <ul className="social-media-icons">
                         <li><a href="#"><img src={Facebook} alt="Facebook" /></a></li>
                         <li><a href="#"><img src={Instagram} alt="Twitter" /></a></li>
                         <li><a href="#"><img src={X} alt="Instagram" /></a></li>
                     </ul>
-                    <p class="copyright">© 2024 NextToLast. All rights reserved</p>
+                    <p className="copyright">© 2024 NextToLast. All rights reserved</p>
                 </div>
             </div>
         </div>

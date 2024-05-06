@@ -35,10 +35,8 @@ function Header () {
 
     return (
         <div className='ntl__header'>
-            <video src={Video} autoPlay={true} loop={true} alt='lava comming out of volcino' muted>
-                Error occured while playing Video
-            </video>
-            <img src={Image} alt='metallic red wrist watch with ntl logo' />
+            <img className='background-gif' src={Video} alt='Red Lightning' />
+            <img className='watch-img' src={Image} alt='metallic red wrist watch with ntl logo' />
             <div className='watch-face'>
                 <div className='watch-hands'>
                     <div className='hour-hand '></div>
