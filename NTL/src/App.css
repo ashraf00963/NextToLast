@@ -168,21 +168,21 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 .blue-white-font {
-    background: linear-gradient(180deg, #00D4C1 20%, #FFFFFF 80%);
+    background: linear-gradient(180deg, #00D4C1 20%, #fff 50%);
     -webkit-background-clip: text; /* For Safari */
     background-clip: text;
     color: transparent; /* Hide the original text */
 }
 
 .green-white-font {
-    background: linear-gradient(180deg, #00D4C1 20%, #FFFFFF 80%);
+    background: linear-gradient(180deg, #00D4C1 20%, #FFFFFF 50%);
     -webkit-background-clip: text; /* For Safari */
     background-clip: text;
     color: transparent; /* Hide the original text */
 }
 
 .red-white-font {
-    background: linear-gradient(180deg, #d41900 20%, #FFFFFF 80%);
+    background: linear-gradient(180deg, #d41900 20%, #FFFFFF 50%);
     -webkit-background-clip: text; /* For Safari */
     background-clip: text;
     color: transparent; /* Hide the original text */

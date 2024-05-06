@@ -1,4 +1,4 @@
-import { Green1, Green2, Green3 } from '../assets';
+import { Green1, Green2, Green3, ShoppingBag } from '../assets';
 import './collections.css';
 
 function GreenCollection () {
@@ -8,18 +8,33 @@ function GreenCollection () {
             <div className='cards'>
                 <div className='card black-green-0deg'>
                     <img src={Green1} alt='metallic green ntl wrist watch' />
-                    <p className='collection-name green-white-font'>NTL Green Collection</p>
-                    <p className='watch-name green-white-font'>Shadow In Between</p>
+                    <div className='card__watch-info'>
+                        <div className='card__titles'>
+                            <p className='collection-name green-white-font'>NTL Green Collection</p>
+                            <p className='watch-name green-white-font'>Shadow In Between</p>
+                        </div>
+                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                    </div>
                 </div>
                 <div className='card black-green-0deg'>
                     <img src={Green2} alt='metallic green ntl wrist watch' />
-                    <p className='collection-name green-white-font'>NTL Green Collection</p>
-                    <p className='watch-name green-white-font'>Half Luck</p>
+                    <div className='card__watch-info'>
+                        <div className='card__titels'>
+                           <p className='collection-name green-white-font'>NTL Green Collection</p>
+                            <p className='watch-name green-white-font'>Half Luck</p>
+                        </div>
+                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                    </div>
                 </div>
                 <div className='card black-green-0deg'>
                     <img src={Green3} alt='metallic green ntl wrist watch' />
-                    <p className='collection-name green-white-font'>NTL Green Collection</p>
-                    <p className='watch-name green-white-font'>Morning Dream</p>
+                    <div className='card__watch-info'>
+                        <div className='card__titles'>
+                            <p className='collection-name green-white-font'>NTL Green Collection</p>
+                            <p className='watch-name green-white-font'>Morning Dream</p>
+                        </div>
+                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                    </div>
                 </div>
             </div>
         </div>

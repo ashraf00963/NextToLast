@@ -1,4 +1,4 @@
-import { Blue1, Blue2,  Blue3 } from "../assets";
+import { Blue1, Blue2,  Blue3, ShoppingBag } from "../assets";
 import './collections.css';
 
 function BlueCollection () {
@@ -8,18 +8,33 @@ function BlueCollection () {
             <div className="cards">
                 <div className="card black-blue-0deg">
                     <img src={Blue1} alt="metallic blue ntl wrist watch" />
-                    <p className="collection-name blue-white-font">NTL Blue Collection</p>
-                    <p className="watch-name blue-white-font">Black River</p>
+                    <div className="card__watch-info">
+                        <div className="card__titles">
+                            <p className="collection-name blue-white-font">NTL Blue Collection</p>
+                            <p className="watch-name blue-white-font">Black River</p>
+                        </div>
+                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                    </div>
                 </div>
                 <div className="card black-blue-0deg">
                     <img src={Blue2} alt="metallic blue ntl wrist watch" />
-                    <p className="collection-name blue-white-font">NTL Blue Collection</p>
-                    <p className="watch-name blue-white-font">Black Sand</p>
+                    <div className="card__watch-info">
+                        <div className="card__titles">
+                            <p className="collection-name blue-white-font">NTL Blue Collection</p>
+                            <p className="watch-name blue-white-font">Black Sand</p>
+                        </div>
+                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                    </div>
                 </div>
                 <div className="card black-blue-0deg">
                     <img src={Blue3} alt="metallic blue ntl wrist watch" />
-                    <p className="collection-name blue-white-font">NTL Blue Collection</p>
-                    <p className="watch-name blue-white-font">Black Castle</p>
+                    <div className="card__watch-info">
+                        <div className="card__titles">
+                            <p className="collection-name blue-white-font">NTL Blue Collection</p>
+                            <p className="watch-name blue-white-font">Black Castle</p>
+                        </div>
+                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                    </div>
                 </div>
             </div>
         </div>

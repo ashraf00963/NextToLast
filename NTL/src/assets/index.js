@@ -10,11 +10,12 @@ import Green1 from './green1.jpg';
 import Green2 from './green2.jpg';
 import Green3 from './green3.jpg';
 import Blue1 from './blue1.jpg';
-import Blue2 from './blue2.jpg';
+import Blue2 from './blue2.2.jpg';
 import Blue3 from './blue3.jpg';
 import Facebook from './facebook-icon.png';
 import Instagram from './instagram-icon.png';
 import X from './x-icon.png';
+import ShoppingBag from './add-to-basket.png';
 
 
 export {
@@ -35,4 +36,5 @@ export {
     Facebook,
     Instagram,
     X,
+    ShoppingBag,
 };
