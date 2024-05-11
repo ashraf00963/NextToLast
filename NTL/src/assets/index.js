@@ -15,8 +15,15 @@ import Blue3 from './blue3.jpg';
 import Facebook from './facebook-icon.png';
 import Instagram from './instagram-icon.png';
 import X from './x-icon.png';
-import ShoppingBag from './add-to-basket.png';
-
+import ShoppingBag from './shopping-bag.png';
+import Cart from './cart.png';
+import Paypal from './paypal.png';
+import Klarna from './klarna.png';
+import Maestro from './maestro.png';
+import Paysafe from './pay-safe.png';
+import Americanexpress from './american-express.png';
+import Visa from './visa.png';
+import UserIcon from './user1.png';
 
 export {
     Video,
@@ -37,4 +44,12 @@ export {
     Instagram,
     X,
     ShoppingBag,
+    Cart,
+    Paypal,
+    Paysafe,
+    Maestro,
+    Visa,
+    Klarna,
+    Americanexpress,
+    UserIcon,
 };

@@ -1,108 +1,166 @@
 .ntl__navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 5rem;
+    position: fixed;
 
-    position: relative;
-    font-family: "Nunito", sans-serif;
-}
-
-.ntl__navbar h1 {
-    margin: 0;
-}
-
-.ntl__navbar-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-self: center;
-    min-width: 30%;
-    max-width: 50%;
-    position: relative;
-    margin: 0;
-    padding: 0;
+    align-items: center;
 
-    font-size: 1.1rem;
-}
-
-.ntl__navbar-menu li {
-    text-decoration: none;
-    list-style: none;
-
-    color: #fff;
-}
-
-.ntl__navbar-menu a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.ntl__navbar-menu li button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
+    z-index: 10; 
+    top: 0;
     
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-family: serif;
+    width: 100%;
+   
+}
+
+.ntl__menu-bar button {
+    border: 0;
+    border-radius: 1rem;
+
+    background-color: #52434328;
+    color: #ff9900;
 }
 
 .menu-toggle {
-    display: none;
+    margin: 0 1.5rem;
+    width: 28px;
 }
 
 
-@media screen and (max-width: 850px) {
-    .ntl__navbar-menu {
-        width: 100%;
-        max-width: none;
-        padding: 1rem 0;
-        left: 0%; /* Align to the left */
-        transform: translateY(-20px); /* Initial position above the navbar */
-        opacity: 0; /* Initially hidden */
-        pointer-events: auto; /* Initially no pointer events */
-        transition: opacity 0.0s ease, transform 0.3s ease; /* Transition */
-        position: absolute; /* Absolute positioning */
-        top: 120%;
-        z-index: 5;
+
+.ntl__logo h1 {
+    text-align: center;
+    margin: 1rem 0;
+    font-family: "Nunito", sans-serif;
+    margin-left: 2.5rem;
+}
+
+.ntl__two-logos {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 25.5rem;
+}
+
+.login-toggle {
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.login-toggle a {
+    width: fit-content;
+    height: fit-content;
+}
+
+.ntl__login-logo {
+    width: fit-content;
+    
+}
+
+.login-toggle img {
+    width: 35px;
+    padding-top: 0.5rem;
+}   
+
+.ntl__shopping-basket {
+    width: fit-content;
+}
+
+.bag-toggle {
+    border: none;
+    background-color: transparent;
+}
+
+.bag-toggle a {
+    width: fit-content;
+}
+
+.bag-toggle img {
+    width: 35px;
+    padding-top: 0.6rem;
+}
+
+.ntl__side-bar {
+    position: fixed;
+    right: -100%;
+    width: 20%; 
+    height: 100vh; 
+    background-color: #52434328;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    z-index: 999;
+    transition: right 1s ease-in-out; 
+    padding: 0;
+    margin-top: 1.4rem;
+    list-style: none;
+}
+
+.ntl__side-bar li {
+    margin: 1.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ff9900;
+}
+
+.ntl__side-bar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: "Nunito", sans-serif;
+    
+}
+
+.ntl__side-bar.show {
+    margin-left: 12.5rem;
+    left: 0;
+    
+    width: 20rem;
+}
+
+@media screen and (max-width: 1150px) {
+    .ntl__two-logos {
+        margin: 0;
+        margin-right: 1rem;
+    }
+    
+    .ntl__side-bar.show {
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    
+
+    .ntl__two-logos {
+        gap: 0.3rem;
     }
 
-    .ntl__navbar-menu.show {
-        display: inline-flex;
-
-        top: 128%;
-        left: 60%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-
-        opacity: 1;
-        transition: opacity 0.3s ease, transform 0.5s ease; 
-        
-        width: min-content;
-        z-index: 7;
-        box-shadow: -4px 5px 5px #000;
-        background-color: rgba(0, 0, 0, 0.5);
+    .login-toggle img {
+        width: 25px;
     }
 
-    .ntl__navbar-menu li {
-        padding: 1rem; 
-        font-size: 1.3rem;
-        z-index: 8;
+    .bag-toggle img {
+        width: 25px;
     }
+}
 
-    .menu-toggle {
-        display: block;
-        background-color: transparent;
-        border: none;
-
-        color: #f90;
+@media screen and (max-width: 400px) {
+    .ntl__logo h1 {
         font-size: 1.5rem;
+        margin-left: 0.8rem;
+    } 
+    
+    .ntl__side-bar {
+        width: 100%;
+        background: linear-gradient(90deg, #000000 18%, #1F0000 50%);
     }
 
-    .menu-toggle:focus + .ntl__navbar-menu {
-        display: flex;
+    .ntl__side-bar.show {
+        width: 100%;
+        top: 4.2%;
     }
 }

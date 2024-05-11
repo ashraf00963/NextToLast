@@ -1,0 +1,214 @@
+.ntl__basket {
+    font-family: "Nunito", sans-serif;
+
+    display: flex;
+    justify-content: space-between;
+ 
+    flex-direction: row;
+    gap: 5rem;
+
+    color: #fff;
+    margin: 2rem;
+    margin-right: 1rem;
+    margin-top: 8rem;
+    
+}
+
+.ntl__basket-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+
+    background-color: #53666354;
+    padding: 1rem;
+    padding-left: 2rem;
+    border: 1px solid #000;
+}
+
+.ntl__basket-items h2 {
+    width: 100%;
+    margin: 1rem;
+}
+
+.ntl__basket-list {
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
+    padding: 0;
+
+    border-top: 1px solid #fff;
+    padding: 0.5rem;
+}
+
+.ntl__basket-list img {
+    width: 30%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.basket-item {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+    border-bottom: 1px solid #fff;
+    padding: 1rem;
+}
+
+.basket-watch-img {
+    width: fit-content;
+    height: fit-content;
+    flex-shrink: 0;
+}
+
+.item-details {
+    margin: 0.5rem;
+}
+
+.watch-collection {
+    margin-bottom: 0.2rem;
+    font-weight: 200;
+    
+}
+
+.watch-name {
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+
+.quantity-con {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.add-button {
+    padding: 0 0.2rem;
+    background-color: #536663;
+    border: none;
+}
+
+.watch-quantity {
+    background-color: #5366637a;
+    padding: 0 0.5rem;
+    margin: 0;
+}
+
+.remove-button {
+    padding: 0.1rem;
+    background-color: #704444f3;
+    border: none;
+    padding: 0 0.2rem;
+}
+
+.ntl__basket-order_summary {
+    display: flex;
+    flex-direction: column;
+    
+    width: 40%;
+    height: fit-content;
+
+    background-color: #53666354;
+    padding: 1rem;
+    padding-left: 2rem;
+}
+
+.ntl__basket-order_summary button {
+    border: none;
+    background-color: #ff000085;
+    color: white;
+    padding: 0.2rem;
+    
+    font-family: "Nunito", sans-serif;
+}
+
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+    
+    flex-direction: row;
+}
+
+.subtotal p {
+    margin: 0.1rem;
+}
+
+.shipping-p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shipping-p p {
+    margin: 0.1rem;
+}
+
+.gst-p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gst-p p {
+    margin: 0.1rem;
+}
+
+.total__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payments {
+    margin: 0.5rem 2rem;
+    width: 100%;
+}
+
+.payments-logos {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: 80%;
+
+    margin: 0;
+    padding: 0;
+}
+
+.payments-logos li img {
+    width: 100%;
+}
+
+#total {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+@media screen and (min-width: 1151px) and (max-width: 1300px) {
+    .ntl__basket {
+        flex-direction: column;
+    }
+
+    .ntl__basket-items {
+        width: 100%;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 900px) {
+    .ntl__basket {
+        flex-direction: column;
+    }
+
+    .ntl__basket-items {
+        width: 90vw;
+    }
+}

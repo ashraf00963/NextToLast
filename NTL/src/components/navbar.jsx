@@ -1,12 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Cart, UserIcon } from '../assets';
 import './navbar.css';
 
-function Navbar ({loggedIn, setLoggedIn}) {
-    const [ showMenu, setShowMenu ] = useState(false);
+
+function Navbar ({ loggedIn, setLoggedIn }) {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
 
     const toggleMenu = () => {
-        setShowMenu(!showMenu);
+        setIsSidebarOpen(!isSidebarOpen);
+    }
+
+    const toggleLoginPage = () => {
+        setIsLoginPageOpen(!isLoginPageOpen);
     }
 
     const handleLogout = () => {
@@ -14,28 +21,39 @@ function Navbar ({loggedIn, setLoggedIn}) {
     };
 
     return (
-        <div className='ntl__navbar'>
-            <div className='ntl__navbar-logo yellow-to-gray-90deg'>
-                <Link to='/'>
-                <h1>Next To Last</h1>
-                </Link>
+            <div className='ntl__navbar black-red-90deg'>
+                <div className='ntl__menu-bar'>
+                    <button className='menu-toggle' onClick={toggleMenu}>
+                            {isSidebarOpen ? '✕' : '☰'}
+                    </button>
+                    <ul className={`ntl__side-bar ${isSidebarOpen ? 'show' : ''}`}>
+                        <li><Link to='/'>Watches</Link></li>
+                        <li><Link to='/'>Jewelry</Link></li>
+                        <li><Link to='/'>Accessories</Link></li>
+                    </ul>
+                </div>
+                <div className='ntl__logo yellow-to-gray-90deg'>
+                    <Link to='/'>
+                        <h1>Next To Last</h1>
+                    </Link>
+                </div>
+                <div className='ntl__two-logos'>
+                    <div className='ntl__login-logo'>
+                        <button className='login-toggle'>
+                            <Link to='/login'>
+                                <img src={UserIcon} />
+                            </Link>
+                        </button>
+                    </div>
+                    <div className='ntl__shopping-basket'>
+                        <button className='bag-toggle'>
+                            <Link to='/basket'>
+                                <img src={Cart} />
+                            </Link>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <button className='menu-toggle' onClick={toggleMenu}>
-                &#9776;
-            </button>
-            <ul className={`ntl__navbar-menu ${showMenu ? 'show' : ''}`}>
-                <Link to='/'><li onClick={toggleMenu}>Gallery</li></Link>
-                <Link to='/'><li onClick={toggleMenu}>Products</li></Link>
-                {loggedIn ? (
-                    <li><button onClick={handleLogout}>Logout</button></li>
-                ) : (
-                    <>
-                        <Link to='/Login'><li onClick={toggleMenu}>Login</li></Link>
-                        <Link to='/register'><li onClick={toggleMenu}>Register</li></Link>
-                    </>
-                )}
-            </ul>
-        </div>
     )
 }
 

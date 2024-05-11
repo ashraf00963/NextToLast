@@ -6,6 +6,7 @@ import BlueCollection from "./blue-collection";
 import Footer from "./footer";
 import Login from "./Login/login";
 import Register from "./Login/register";
+import Basket from "./basket";
 
 export {
     Navbar,
@@ -15,5 +16,6 @@ export {
     BlueCollection,
     Footer,
     Login,
-    Register
+    Register,
+    Basket,
 };

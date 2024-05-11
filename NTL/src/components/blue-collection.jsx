@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Blue1, Blue2,  Blue3, ShoppingBag } from "../assets";
 import './collections.css';
 
-function BlueCollection () {
+function BlueCollection ({ addToBasket }) {
+    const handleAddToBasket = (watchId) => {
+        addToBasket(watchId);
+    }
     return (
         <div className="collection-card black-blue-180deg">
             <h1 className="gray-blue-gray-font-90deg">NTL Metallic Blue Collection</h1>
@@ -13,7 +17,7 @@ function BlueCollection () {
                             <p className="collection-name blue-white-font">NTL Blue Collection</p>
                             <p className="watch-name blue-white-font">Black River</p>
                         </div>
-                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                        <button className='shopping-bag' onClick={() => handleAddToBasket(7)}><img src={ShoppingBag} alt='shopping Bag' /></button>
                     </div>
                 </div>
                 <div className="card black-blue-0deg">
@@ -23,7 +27,7 @@ function BlueCollection () {
                             <p className="collection-name blue-white-font">NTL Blue Collection</p>
                             <p className="watch-name blue-white-font">Black Sand</p>
                         </div>
-                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                        <button className='shopping-bag' onClick={() => handleAddToBasket(8)}><img src={ShoppingBag} alt='shopping Bag' /></button>
                     </div>
                 </div>
                 <div className="card black-blue-0deg">
@@ -33,7 +37,7 @@ function BlueCollection () {
                             <p className="collection-name blue-white-font">NTL Blue Collection</p>
                             <p className="watch-name blue-white-font">Black Castle</p>
                         </div>
-                        <img className='shopping-bag' src={ShoppingBag} alt='shopping Bag' />
+                        <button className='shopping-bag' onClick={() => handleAddToBasket(9)}><img src={ShoppingBag} alt='shopping Bag' /></button>
                     </div>
                 </div>
             </div>
