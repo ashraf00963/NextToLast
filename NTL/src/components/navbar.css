@@ -14,7 +14,7 @@
 }
 
 .ntl__menu-bar button {
-    border: 0;
+    border: 1px solid #ff9900;
     border-radius: 1rem;
 
     background-color: #52434328;
@@ -132,6 +132,8 @@
     .ntl__side-bar.show {
         left: 0;
         margin-left: 0;
+
+        
     }
 }
 
@@ -157,14 +159,6 @@
         margin-right: 0;
     }
 
-    .login-toggle img {
-        width: 25px;
-    }
-
-    .bag-toggle img {
-        width: 25px;
-    }
-
     .menu-toggle {
         width: 30px;
     }
@@ -183,7 +177,7 @@
 
     .ntl__side-bar.show {
         width: 100%;
-        top: 4%;
+        top: 3.2%;
     }
 }
 
