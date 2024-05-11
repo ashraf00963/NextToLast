@@ -195,17 +195,25 @@
         top: -8%;
         left: 0%;
     }
+
+    .ntl__header .background-gif {
+        height: 25rem;
+    }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 300px) {
+    .ntl__header .background-gif {
+        height: 18rem;
+    }
+
     :root {
-        --hour-h: 1.4rem;
+        --hour-h: 1.8rem;
         --hour-w: 0.2rem;
 
-        --minute-h: 1.6rem;
+        --minute-h: 2.2rem;
         --minute-w: 0.18rem;
 
-        --second-h: 1.5rem;
+        --second-h: 2.5rem;
         --second-w: 0.1rem;
     }
 
@@ -213,8 +221,11 @@
         height: 0.35rem;
         width: 0.35rem;
 
-        top: -8%;
-        left: 5%;
+        top: -15%;
+        left: -8%;
+    }
+
+    .watch-hands {
+        left: 53%;
     }
 }
-

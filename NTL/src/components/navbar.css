@@ -32,7 +32,8 @@
 
 .ntl__logo h1 {
     text-align: center;
-    margin: 1rem 0;
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
     font-family: "Nunito", sans-serif;
     margin-left: 2.5rem;
 }
@@ -136,7 +137,9 @@
 
 @media screen and (max-width: 550px) {
     .ntl__navbar h1 {
-        margin-left: 1rem;
+        margin-left: center;
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
     .ntl__side-bar {
@@ -170,7 +173,6 @@
 @media screen and (max-width: 400px) {
     .ntl__logo h1 {
         font-size: 1.5rem;
-        margin-left: 0.8rem;
     } 
     
     .ntl__side-bar {
@@ -178,8 +180,25 @@
         background: linear-gradient(90deg, #000000 18%, #1F0000 50%);
     }
 
+
     .ntl__side-bar.show {
         width: 100%;
         top: 4%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .ntl__logo h1 {
+        margin-top: 0.8rem;
+        margin-bottom: 0.6rem;
+        margin: 0.8rem 0 0.6rem 1rem;
+    }
+
+    .menu-toggle {
+        padding: 0;
+    }
+
+    .cards {
+        margin: 0;
     }
 }

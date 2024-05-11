@@ -209,6 +209,49 @@
     }
 
     .ntl__basket-items {
-        width: 90vw;
+        width: 80vw;
+        align-self: center;
+    }
+
+    .ntl__basket-order_summary {
+        align-self: center;
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .ntl__basket-items {
+        width: 80%;
+    }
+
+    .basket-item img {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .basket-item img {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ntl__basket {
+        margin: 0;
+        margin-top: 5rem;
+    }
+
+    .ntl__basket-list li {
+        width: 100%;
+        border: none;
+    }
+
+    .basket-item img {
+        width: 55%;
+    }
+    
+    .watch-collection {
+        font-size: 0.8rem;
+        width: 100%;
     }
 }

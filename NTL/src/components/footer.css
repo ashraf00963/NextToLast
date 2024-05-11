@@ -150,3 +150,15 @@
 
     
 }
+
+@media screen and (max-width: 300px) {
+    .social-media-icons {
+        margin-left: 1rem;
+    }
+
+    .footer__rights p {
+        padding-left: 0;
+        margin-right: 0;
+        width: 98%;
+    }
+}

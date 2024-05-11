@@ -78,10 +78,17 @@
 }
 
 @media screen and (max-width: 550px) {
-    .ntl__page_card {
-        width: 52%;
-        margin-top: 8rem;
-        margin-right: 0;
+    .ntl__page {
+        background-color: #53666354;
+        height: 100vh;
     }
-    
+    .ntl__page_card {
+        margin: 0;
+        margin-top: 5rem;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        justify-self: flex-start;
+        align-self: flex-start;
+    }
 }
