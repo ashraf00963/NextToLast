@@ -77,14 +77,16 @@ function Register () {
                 <p>{error}</p>
                 <div className='ntl__page_input'>
                     <label>Email</label>
-                    <input type='email' id='email' value={email} onChange={handleEmail} placeholder='email address' required />
+                    <input className='black-red-90deg' type='email' id='email' value={email} onChange={handleEmail} placeholder='email address' required />
                     <label>Password</label>
-                    <input type='password' id='password' value={password} onChange={handlePassword} placeholder='********' required />
+                    <input className='black-red-90deg' type='password' id='password' value={password} onChange={handlePassword} placeholder='********' required />
                     <label>Confirm Password</label>
-                    <input type='password' id='Confirm password' value={confirmPassword} onChange={handleConfirmPassword} placeholder='********' required />
+                    <input className='black-red-90deg' type='password' id='Confirm password' value={confirmPassword} onChange={handleConfirmPassword} placeholder='********' required />
                 </div>
-                <button onClick={handleSubmit}>Register</button>
-                
+                <div className='ntl__two-btn'>
+                    <button onClick={handleSubmit}>Register</button>
+                    <a href='/#/login'>Login</a>
+                </div>
             </div>
         </div>
     )

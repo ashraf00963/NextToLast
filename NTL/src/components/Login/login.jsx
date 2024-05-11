@@ -64,11 +64,14 @@ function Login ({ onLogin }) {
                 <p>{error}</p>
                 <div className='ntl__page_input'>
                     <label>Email</label>
-                    <input type='email' id='email' value={email} onChange={handleEmail} placeholder='email address' required />
+                    <input className='black-red-90deg' type='email' id='email' value={email} onChange={handleEmail} placeholder='email address' required />
                     <label>Password</label>
-                    <input type='password' id='password' value={password} onChange={handlePassword} placeholder='*******' required />
+                    <input className='black-red-90deg' type='password' id='password' value={password} onChange={handlePassword} placeholder='*******' required />
                 </div>
-                <button onClick={handleSubmit}>Login</button>               
+                <div className='ntl__two-btn'>
+                    <button onClick={handleSubmit}>Login</button> 
+                    <a href='/#/register'>Register</a>
+                </div>      
             </div>
         </div>
     )
