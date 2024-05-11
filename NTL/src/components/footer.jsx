@@ -26,7 +26,7 @@ function Footer () {
                     </div>
                     <ul className={`footer__section-list ${isOpen.section1 ? 'isOpen' : ''}`}>
                         <li><a href='#'>All NTL Watches</a></li>
-                        <li><a href='#'>Replacment Parts</a></li>
+                        <li><a href='#'>Replacement Parts</a></li>
                         <li><a href='#'>Misc</a></li>
                     </ul>
                 </div>

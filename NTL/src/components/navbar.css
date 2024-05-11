@@ -22,8 +22,10 @@
 }
 
 .menu-toggle {
-    margin: 0 1.5rem;
-    width: 28px;
+    margin-left: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    width: 50px;
 }
 
 
@@ -149,6 +151,7 @@
 
     .ntl__two-logos {
         gap: 0.3rem;
+        margin-right: 0;
     }
 
     .login-toggle img {
@@ -157,6 +160,10 @@
 
     .bag-toggle img {
         width: 25px;
+    }
+
+    .menu-toggle {
+        width: 30px;
     }
 }
 
@@ -173,6 +180,6 @@
 
     .ntl__side-bar.show {
         width: 100%;
-        top: 4.2%;
+        top: 4%;
     }
 }
