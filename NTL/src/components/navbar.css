@@ -133,7 +133,19 @@
 }
 
 @media screen and (max-width: 550px) {
-    
+    .ntl__navbar h1 {
+        margin-left: 1rem;
+    }
+
+    .ntl__side-bar {
+        width: 100%;
+        background: linear-gradient(90deg, #000000 18%, #1F0000 50%);
+    }
+
+    .ntl__side-bar.show {
+        width: 100%;
+        top: 4.2%;
+    }
 
     .ntl__two-logos {
         gap: 0.3rem;
