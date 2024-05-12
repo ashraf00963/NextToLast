@@ -8,7 +8,7 @@ function Basket () {
     const [basketItems, setBasketItems] = useState([]);
 
     const instance = axios.create({
-        baseURL: 'http://localhost:3000',
+        baseURL: 'http://172.31.27.64:3002',
     });
 
     const fetchBasketItems = () => {
@@ -82,7 +82,7 @@ function Basket () {
                     <ul className='ntl__basket-list'>
                         {basketItems.map(item => (
                             <li className='basket-item' key={item.id}>
-                                <img className='basket-watch-img' src={`http://localhost:3000${item.img}`} alt='watch' />
+                                <img className='basket-watch-img' src={`http://172.31.27.64:3002${item.img}`} alt='watch' />
                                 <div className='item-details'>
                                     <div className='watch-collection'>{item.collection}</div>
                                     <div className='watch-name'>{item.name}</div>
