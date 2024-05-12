@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './login.css';
 
 function Login ({ onLogin }) {
@@ -70,7 +70,7 @@ function Login ({ onLogin }) {
                 </div>
                 <div className='ntl__two-btn'>
                     <button onClick={handleSubmit}>Login</button> 
-                    <a href='/#/register'>Register</a>
+                    <Link to='/register'>Reigster</Link>
                 </div>      
             </div>
         </div>

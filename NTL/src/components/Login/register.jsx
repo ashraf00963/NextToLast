@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
 import './login.css';
 
 function Register () {
@@ -85,7 +85,7 @@ function Register () {
                 </div>
                 <div className='ntl__two-btn'>
                     <button onClick={handleSubmit}>Register</button>
-                    <a href='/#/login'>Login</a>
+                    <Link to='/login'>Login</Link>
                 </div>
             </div>
         </div>
