@@ -8,14 +8,14 @@ function HomePage () {
     const [watches, setWatches] = useState([]);
 
     const instance = axios.create({
-        baseURL: 'http://172.31.27.64:3002',
+        baseURL: 'https://172.31.27.64:3002',
     });
 
     useEffect(() => {
         // Function to fetch all watches from the server
         const fetchWatches = async () => {
             try {
-                const response = await axios.get('http://172.31.27.64:3002/watches');
+                const response = await axios.get('https://172.31.27.64:3002/watches');
                 setWatches(response.data);
             } catch (error) {
                 console.error('Error fetching watches:', error);
@@ -29,7 +29,7 @@ function HomePage () {
     const addToBasket = async (watchId) => {
         try {
             // Send the watch ID to the server to add it to the basket
-            const response = await axios.post('http://172.31.27.64:3002/basket/add', { id: watchId });
+            const response = await axios.post('https://172.31.27.64:3002/basket/add', { id: watchId });
             console.log('Watch added to basket:', response.data.watch);
         } catch (error) {
             console.error('Error adding watch to basket:', error);

@@ -28,7 +28,7 @@ function Login ({ onLogin }) {
         e.preventDefault();
 
         try {  
-            const response = await fetch('http://172.31.27.64:8080/login', {
+            const response = await fetch('https://172.31.27.64:8080/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
