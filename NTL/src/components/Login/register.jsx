@@ -49,7 +49,7 @@ function Register () {
         }
 
         try {
-            const response = await fetch('https://3.75.172.221:8080/register', {
+            const response = await fetch('https://54.93.168.94:8080/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
