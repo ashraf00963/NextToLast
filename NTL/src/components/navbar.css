@@ -123,6 +123,10 @@
     padding-top: 0.5rem;
 }   
 
+#user-icon_img img {
+    width: 35px;
+}
+
 .ntl__shopping-basket {
     width: fit-content;
 }
@@ -217,6 +221,10 @@
         width: 32px;
     }
 
+    #user-icon_img img {
+        width: 32px;
+    }
+
     .bag-toggle img {
         width: 32px;
     }
@@ -267,6 +275,10 @@
     }
 
     .login-toggle img {
+        width: 25px;
+    }
+
+    #user-icon_img img {
         width: 25px;
     }
 

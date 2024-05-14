@@ -104,7 +104,7 @@ function Basket () {
                     <div className='price__sub'>
                         <div className='subtotal'>
                             <p>Subtotal (INCL. TAX)</p>
-                            <p>${totalPrice.toLocaleString('en-US', {
+                            <p>${price.toLocaleString('en-US', {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2
                             })}</p>
