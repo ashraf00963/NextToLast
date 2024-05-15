@@ -1,32 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Cart, UserIcon } from '../assets';
 import './navbar.css';
+import { AuthContext } from './AuthContext';
 
 function Navbar () {
+    const { loggedIn, setLoggedIn } = useContext(AuthContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isOpen, setIsOpen] = useState({
         section1: false,
         section2: false,
         section3: false,
     });
-    const [loggedIn, setLoggedIn] = useState(false);
 
-    useEffect(() => {
-        const checkAuth = async () => {
-            const response = await fetch('http://54.93.168.94:8080/auth-check', {
-                method: 'GET',
-                credentials: 'include',
-            });
 
-            const data = await response.json();
-            if (data.loggedIn) {
-                setLoggedIn(true);
-            }
-        };
-
-        checkAuth();
-    }, []);
+    
 
     const toggleIsOpen = (section) => {
         setIsOpen(prevState => ({
@@ -100,13 +88,15 @@ function Navbar () {
             <div className='ntl__two-logos'>
                 <div className='ntl__login-logo'>
                     {loggedIn ? (
-                        <button className='login-toggle' onClick={handleLogout}>
-                            Logout
-                        </button>
+                        <>
+                        <Link to='/account' id='user-icon_img'>
+                            <img src={UserIcon} />
+                        </Link>
+                        </>
                     ) : (
                         <Link to='/login' id='user-icon_img'>
                             <img src={UserIcon} />
-                        </Link>
+                        </Link> 
                     )}
                 </div>
                 <div className='ntl__shopping-basket'>

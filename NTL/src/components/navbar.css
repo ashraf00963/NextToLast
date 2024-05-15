@@ -142,7 +142,6 @@
 
 .bag-toggle img {
     width: 35px;
-    padding-top: 0.6rem;
 }
 
 .ntl__side-bar {
@@ -223,15 +222,23 @@
 
     #user-icon_img img {
         width: 32px;
+        padding-top: 0.55rem;
     }
 
     .bag-toggle img {
         width: 32px;
+        padding-top: 0.65rem;
     }
 
     .menu-toggle {
         width: 32px;
-        padding: 0.1rem 0;
+        border: none;
+        font-size: 1.5rem;
+    }
+    
+    .ntl__menu-bar button {
+        border: none;
+        padding: 0;
     }
 
     .sidebar__lists a {

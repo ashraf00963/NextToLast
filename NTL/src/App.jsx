@@ -1,24 +1,27 @@
 import { Navbar, Login, Register } from './components';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './components/AuthContext';
 import HomePage from './Home';
 import './App.css';
 import { useState } from 'react';
 import Basket from './components/basket';
+import Account from './components/Login/account';
 
 
 function App() {
-  const [ loggedIn, setLoggedIn ] = useState(false);
-
   return (
-    <Router>
-        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-          <Routes>
-            <Route exact path='/' element={<HomePage />} />
-            <Route path='/login' element={<Login onLogin={() => setLoggedIn(true)} />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/basket' element={<Basket />} />
-          </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+          <Navbar />
+            <Routes>
+              <Route exact path='/' element={<HomePage />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/account' element={<Account />} />
+              <Route path='/basket' element={<Basket />} />
+            </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
