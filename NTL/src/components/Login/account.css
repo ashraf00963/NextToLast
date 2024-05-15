@@ -51,7 +51,8 @@
 .account-input input {
     border: 1px solid #ff9900;
     border-radius: 10px;
-    padding: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    color: #fff;
 }
 
 .two-buttons {
