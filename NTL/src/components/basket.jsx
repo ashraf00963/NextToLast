@@ -4,25 +4,60 @@ import axios from 'axios';
 import { Visa, Americanexpress, Maestro, Paypal, Paysafe, Klarna } from '../assets';
 import './basket.css';
 
-function Basket () {
+function Basket() {
     const [basketItems, setBasketItems] = useState([]);
+    const [address, setAddress] = useState('');
+    const [checkoutStatus, setCheckoutStatus] = useState({ success: false, message: '' });
 
     const instance = axios.create({
         baseURL: 'http://54.93.168.94:3002',
     });
 
+    const anotherInstance = axios.create({
+        baseURL: 'http://54.93.168.94:8080',
+    });
+
+    anotherInstance.interceptors.request.use(
+        config => {
+            const userId = localStorage.getItem('userId');
+            if (userId) {
+                config.headers['user-id'] = userId;
+            }
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    );
+
     const fetchBasketItems = () => {
         instance.get('/basket/items')
             .then(response => {
-                setBasketItems(response.data.map(item => ({ ...item, quantity: 1})));
+                setBasketItems(response.data.map(item => ({ ...item, quantity: 1 })));
             })
             .catch(error => {
                 console.log('Error fetching basket items:', error);
             });
     };
 
+    const fetchUserAddress = () => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            anotherInstance.get(`/account/address/${userId}`)
+                .then(response => {
+                    setAddress(response.data.address);
+                })
+                .catch(error => {
+                    console.log('Error fetching the address:', error);
+                });
+        } else {
+            console.log('User ID not found in localStorage');
+        }
+    };
+
     useEffect(() => {
         fetchBasketItems();
+        fetchUserAddress();
     }, []);
 
     const updateBasketItems = (updateBasket) => {
@@ -36,10 +71,10 @@ function Basket () {
             updateBasket[itemIndex].quantity += 1;
             updateBasketItems(updateBasket);
         } else {
-            instance.post('/basket/add', { id: itemToAdd.id }) // Call the server endpoint to add the item
+            instance.post('/basket/add', { id: itemToAdd.id })
                 .then(response => {
-                    console.log(response.data.message); // Log the response message
-                    fetchBasketItems(); // Fetch updated basket items from the server
+                    console.log(response.data.message);
+                    fetchBasketItems();
                 })
                 .catch(error => {
                     console.log('Error adding item to basket:', error);
@@ -52,10 +87,10 @@ function Basket () {
         if (itemIndex !== -1) {
             const updatedBasket = [...basketItems];
             if (updatedBasket[itemIndex].quantity <= 1) {
-                instance.post('/basket/remove', { id: itemToRemove.id }) // Call the server endpoint to remove the item
+                instance.post('/basket/remove', { id: itemToRemove.id })
                     .then(response => {
-                        console.log(response.data.message); // Log the response message
-                        fetchBasketItems(); // Fetch updated basket items from the server
+                        console.log(response.data.message);
+                        fetchBasketItems();
                     })
                     .catch(error => {
                         console.log('Error removing item from basket:', error);
@@ -67,12 +102,32 @@ function Basket () {
             updateBasketItems(updatedBasket);
         }
     };
-    
+
+    const handleClearBasket = () => {
+        instance.post('/basket/clear') // Send a request to clear the basket
+            .then(response => {
+                console.log(response.data.message); // Log the response message
+                fetchBasketItems(); // Fetch updated basket items from the server
+            })
+            .catch(error => {
+                console.log('Error clearing basket:', error);
+            });
+    };    
+
+    const handleCheckOut = () => {
+        // Clear the basket
+        handleClearBasket();
+        // Set checkout status
+        setCheckoutStatus({ success: true, message: `Thank you for your purchase with the total of ${totalPrice}$. The order will be delivered shortly to ${joinedDelivery}.` });
+    };
 
     const price = basketItems.length > 0 ? basketItems.reduce((total, item) => total + (item.quantity * item.price), 0) : 0;
     const shippingPrice = 0.00;
     const gstPrice = basketItems.length > 0 ? basketItems.reduce((gst, item) => gst + (item.quantity * 92), 0) : 0;
     const totalPrice = price + shippingPrice + gstPrice;
+    const delivery = JSON.stringify(address); 
+    const deliveryValues = Object.values(address);
+    const joinedDelivery = deliveryValues.join(', ');
 
     return (
         <div className='ntl__basket'>
@@ -132,7 +187,8 @@ function Basket () {
                             })}</p>
                     </div>
                 </div>
-                <button className='checkout'>Proceed To Checkout</button>
+                <button className='checkout' onClick={handleCheckOut}>Proceed To Checkout</button>
+                {checkoutStatus.success && <p>{checkoutStatus.message}</p>}
                 <div className='payments'>
                     <ul className='payments-logos'>
                         <li><img src={Visa} alt='Visa logo' /></li>
@@ -146,6 +202,6 @@ function Basket () {
             </div>
         </div>
     )
-}
+};
 
 export default Basket;

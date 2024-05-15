@@ -38,9 +38,10 @@ function Login () {
     
             const data = await response.json();
     
-            if (data) {
+            if (data && data.userId) {
                 console.log('Login successful');
                 localStorage.setItem('loggedIn', 'true'); // Set loggedIn to true in localStorage
+                localStorage.setItem('userId', data.userId); // Store user ID in localStorage
                 setLoggedIn(true);
                 setError(null);
                 navigate('/');
@@ -53,6 +54,7 @@ function Login () {
             setError(error.message);
         }
     };
+    
     
 
     return (
