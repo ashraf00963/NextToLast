@@ -84,3 +84,19 @@
     color: #a10303;
     text-shadow: 0px 1px 5px #000;
 }
+
+@media screen and (max-width: 550px) {
+    .account-page {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #53666354;
+    }
+    .account-card {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        margin-top: -22rem;
+    }
+}
