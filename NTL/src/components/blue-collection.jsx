@@ -17,7 +17,12 @@ function BlueCollection ({ addToBasket }) {
                             <p className="collection-name blue-white-font">NTL Blue Collection</p>
                             <p className="watch-name blue-white-font">Black River</p>
                         </div>
-                        <button className='shopping-bag' onClick={() => handleAddToBasket(7)}><img src={ShoppingBag} alt='shopping Bag' /></button>
+                        <div onClick={() => handleAddToBasket(7)} className='shopping-bag'>
+                            <span>
+                                <span><img src={ShoppingBag} alt='shopping bag' /></span>
+                                <span>Add to basket</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div className="card black-blue-0deg">
@@ -27,7 +32,12 @@ function BlueCollection ({ addToBasket }) {
                             <p className="collection-name blue-white-font">NTL Blue Collection</p>
                             <p className="watch-name blue-white-font">Black Sand</p>
                         </div>
-                        <button className='shopping-bag' onClick={() => handleAddToBasket(8)}><img src={ShoppingBag} alt='shopping Bag' /></button>
+                        <div onClick={() => handleAddToBasket(8)} className='shopping-bag'>
+                            <span>
+                                <span><img src={ShoppingBag} alt='shopping bag' /></span>
+                                <span>Add to basket</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div className="card black-blue-0deg">
@@ -37,7 +47,12 @@ function BlueCollection ({ addToBasket }) {
                             <p className="collection-name blue-white-font">NTL Blue Collection</p>
                             <p className="watch-name blue-white-font">Black Castle</p>
                         </div>
-                        <button className='shopping-bag' onClick={() => handleAddToBasket(9)}><img src={ShoppingBag} alt='shopping Bag' /></button>
+                        <div onClick={() => handleAddToBasket(9)} className='shopping-bag'>
+                            <span>
+                                <span><img src={ShoppingBag} alt='shopping bag' /></span>
+                                <span>Add to basket</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

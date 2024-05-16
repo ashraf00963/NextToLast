@@ -49,30 +49,39 @@
 
 .card__watch-info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 
 .shopping-bag {
-    width: 8%;
-    height: 8%;
-    margin: 1rem;
-    background-color: #ffffffbb;
-    border: none;
-    padding: 0.1rem;
-    border-radius: 10%;
-    box-shadow: 0px 1px 2px 2px #000;
+    text-align: center;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    color: #fff;
+    justify-self: center;
+    font-size: 0.95rem;
+    font-weight: 200;
 }
 
-.shopping-bag:hover {
-    box-shadow: 0px 3px 3px 3px #000;
+.shopping-bag span {
+    border-bottom: 1px solid #53666354;
+    cursor: pointer;
 }
 
-.shopping-bag:active {
-    box-shadow: none;
-    padding: 0.15rem;
-    margin-bottom: 0.9rem;
-    margin-top: 1.1rem;
+.shopping-bag img {
+    width: 6%;
+    margin-right: 0.5rem;
+}
+
+.shopping-bag span:hover {
+    color: #ff9900;
+    border-color: #ff9900;
+}
+
+.shopping-bag span:active {
+    color: #ff0099;
+    border-bottom: 1px solid #ff0099;
 }
 
 .card p {
@@ -161,17 +170,17 @@
         margin: 2rem;
     }
     
-    .card .shopping-bag {
-        width: 1.3rem;
+    .shopping-bag img {
+        width: 4%;
     }
 
     .collection-name {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 520px) {
     .cards {
         margin-top: 0;
     }
@@ -185,16 +194,7 @@
         font-size: 0.7rem;
     }
 
-    .shopping-bag {
-        margin: 0.8rem 0.8rem 0 0;
-    }
     .shopping-bag img {
-        padding: 0.02rem;
-        margin: 0;
-    }
-
-    .shopping-bag:active {
-        margin: 0.8rem 0.8rem 0 0;
-        padding: 0.15rem;
+        width: 6%;
     }
 }
