@@ -192,3 +192,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     background-clip: text;
     color: transparent; /* Hide the original text */
 }
+
+.gold-white-font {
+    background: linear-gradient(180deg, #ff9100 25%, #ffffffb6 70%);
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text;
+    color: transparent; /* Hide the original text */
+}

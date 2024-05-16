@@ -4,7 +4,7 @@ import './App.css';
 import { Basket, BlueCollection, Footer, GreenCollection, Header, RedCollection } from './components';
 
 
-function HomePage () {
+function HomePage ({ setWatchId }) {
     const [watches, setWatches] = useState([]);
 
     const instance = axios.create({
@@ -40,9 +40,9 @@ function HomePage () {
     return (
         <>
             <Header />
-            <RedCollection addToBasket={addToBasket} />
-            <GreenCollection addToBasket={addToBasket} />
-            <BlueCollection addToBasket={addToBasket} />
+            <RedCollection addToBasket={addToBasket} setWatchId={setWatchId} />
+            <GreenCollection addToBasket={addToBasket} setWatchId={setWatchId} />
+            <BlueCollection addToBasket={addToBasket} setWatchId={setWatchId} />
             <Footer />
         </>
     )
