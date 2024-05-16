@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './account.css';
 
 function Account() {
@@ -47,6 +48,8 @@ function Account() {
     }, []);
     
 
+    const navigate = useNavigate();
+
     const handleEmail = (e) => {
         setEmail(e.target.value);
     }
@@ -85,6 +88,11 @@ function Account() {
 
     const handleAddressSettings = () => {
         setAddressSettings(!addressSettings);
+    }
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
     }
 
     const handleEmailSubmit = async (e) => {
@@ -205,7 +213,7 @@ function Account() {
                         </div>
                     </>
                 }
-                <button onClick={logout} id='log-btn-out'>Logout</button>
+                <button onClick={handleLogout} id='log-btn-out'>Logout</button>
             </div>
         </div>
     );

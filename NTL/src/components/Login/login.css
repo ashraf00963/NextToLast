@@ -77,6 +77,24 @@
     border-bottom: 1px solid transparent;
 }
 
+.reigon {
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #ff9900;
+    border-radius: 0.2rem;
+    padding: 0.3rem;
+    color: #fff;
+    font-size: 1rem;
+    font-family: "Nunito", sans-serif;
+}
+
+.reigon option {
+    background-color: #536663;
+    border-radius: 0;
+    font-family: "Nunito", sans-serif;
+    color: #ff9900;
+}
+
 @media screen and (max-width: 550px) {
     .ntl__page {
         background-color: #53666354;

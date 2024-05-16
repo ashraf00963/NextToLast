@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from './AuthContext';
 import axios from 'axios';
 
 import { Visa, Americanexpress, Maestro, Paypal, Paysafe, Klarna } from '../assets';
 import './basket.css';
 
 function Basket() {
+    const { regionCur } = useContext(AuthContext);
     const [basketItems, setBasketItems] = useState([]);
     const [address, setAddress] = useState('');
     const [checkoutStatus, setCheckoutStatus] = useState({ success: false, message: '' });
@@ -104,10 +106,10 @@ function Basket() {
     };
 
     const handleClearBasket = () => {
-        instance.post('/basket/clear') // Send a request to clear the basket
+        instance.post('/basket/clear')
             .then(response => {
-                console.log(response.data.message); // Log the response message
-                fetchBasketItems(); // Fetch updated basket items from the server
+                console.log(response.data.message);
+                fetchBasketItems();
             })
             .catch(error => {
                 console.log('Error clearing basket:', error);
@@ -115,16 +117,19 @@ function Basket() {
     };    
 
     const handleCheckOut = () => {
-        // Clear the basket
         handleClearBasket();
-        // Set checkout status
-        setCheckoutStatus({ success: true, message: `Thank you for your purchase with the total of ${totalPrice}$. The order will be delivered shortly to ${joinedDelivery}.` });
+        setCheckoutStatus({ success: true, message: `Thank you for your purchase with the total of ${regionCur}${totalPrice.toFixed(2)}. The order will be delivered shortly to ${joinedDelivery}.` });
     };
 
-    const price = basketItems.length > 0 ? basketItems.reduce((total, item) => total + (item.quantity * item.price), 0) : 0;
+    const calculateItemPrice = (price) => {
+        return regionCur === '$' ? price + 200 : price;
+    };
+
+    const price = basketItems.length > 0 ? basketItems.reduce((total, item) => total + (item.quantity * calculateItemPrice(item.price)), 0) : 0;
     const shippingPrice = 0.00;
-    const gstPrice = basketItems.length > 0 ? basketItems.reduce((gst, item) => gst + (item.quantity * 92), 0) : 0;
-    const totalPrice = price + shippingPrice + gstPrice;
+    const taxLabel = regionCur === '$' ? 'Sales Tax' : 'VAT';
+    const taxPrice = basketItems.length > 0 ? basketItems.reduce((tax, item) => tax + (item.quantity * 92), 0) : 0;
+    const totalPrice = price + shippingPrice + taxPrice;
     const delivery = JSON.stringify(address); 
     const deliveryValues = Object.values(address);
     const joinedDelivery = deliveryValues.join(', ');
@@ -146,7 +151,7 @@ function Basket() {
                                         <div className='watch-quantity'>{item.quantity}</div>
                                         <button className='add-button' onClick={() => handleAddToBasket(item)}>+</button>
                                     </div>
-                                    <div className='watch-price'>${item.price}</div>
+                                    <div className='watch-price'>{regionCur}{calculateItemPrice(item.price).toFixed(2)}</div>
                                 </div>
                             </li>
                         ))}
@@ -159,21 +164,21 @@ function Basket() {
                     <div className='price__sub'>
                         <div className='subtotal'>
                             <p>Subtotal (INCL. TAX)</p>
-                            <p>${price.toLocaleString('en-US', {
+                            <p>{regionCur}{price.toLocaleString('en-US', {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2
                             })}</p>
                         </div>
                         <div className='shipping-p'>
                             <p>Shipping & Handling</p>
-                            <p>${shippingPrice.toLocaleString('en-US', {
+                            <p>{regionCur}{shippingPrice.toLocaleString('en-US', {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2
                             })}</p>
                         </div>
-                        <div className='gst-p'>
-                            <p>GST</p>
-                            <p>${gstPrice.toLocaleString('en-US', {
+                        <div className='tax-p'>
+                            <p>{taxLabel}</p>
+                            <p>{regionCur}{taxPrice.toLocaleString('en-US', {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2
                             })}</p>
@@ -181,7 +186,7 @@ function Basket() {
                     </div>
                     <div className='total__price'>
                         <p id='total'>Total</p>
-                        <p>${totalPrice.toLocaleString('en-US', {
+                        <p>{regionCur}{totalPrice.toLocaleString('en-US', {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2
                             })}</p>

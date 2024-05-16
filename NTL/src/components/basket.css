@@ -145,13 +145,13 @@
     margin: 0.1rem;
 }
 
-.gst-p {
+.tax-p {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.gst-p p {
+.tax-p p {
     margin: 0.1rem;
 }
 
