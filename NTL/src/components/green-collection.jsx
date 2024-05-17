@@ -25,13 +25,7 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name green-white-font'>NTL Green Collection</p>
                                 <p className='watch-name green-white-font'>Shadow</p>
                             </div>
-                            <p className="green-white-font">$999</p>
-                        </div>
-                        <div onClick={() => handleAddToBasket(4)} className='shopping-bag'>
-                            <span>
-                                <span><img src={ShoppingBag} alt='shopping bag' /></span>
-                                <span>Add to basket</span>
-                            </span>
+                            <p className="green-white-font" id='collect-price'>$999</p>
                         </div>
                     </div>
                 </div>
@@ -45,13 +39,7 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name green-white-font'>NTL Green Collection</p>
                                 <p className='watch-name green-white-font'>Half Luck</p>
                             </div>
-                            <p className="green-white-font">$1199</p>
-                        </div>
-                        <div onClick={() => handleAddToBasket(5)} className='shopping-bag'>
-                            <span>
-                                <span><img src={ShoppingBag} alt='shopping bag' /></span>
-                                <span>Add to basket</span>
-                            </span>
+                            <p className="green-white-font" id='collect-price'>$1199</p>
                         </div>
                     </div>
                 </div>
@@ -65,13 +53,7 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                                <p className='collection-name green-white-font'>NTL Green Collection</p>
                                <p className='watch-name green-white-font'>Morning</p>
                             </div>
-                            <p className="green-white-font">$1399</p>
-                        </div>
-                        <div onClick={() => handleAddToBasket(6)} className='shopping-bag'>
-                            <span>
-                                <span><img src={ShoppingBag} alt='shopping bag' /></span>
-                                <span>Add to basket</span>
-                            </span>
+                            <p className="green-white-font" id='collect-price'>$1399</p>
                         </div>
                     </div>
                 </div>

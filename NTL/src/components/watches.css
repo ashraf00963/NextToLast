@@ -13,8 +13,8 @@
 }
 
 .watch-page img {
-    border: 2px solid #53666354;
-    border-radius: 0.8;
+    border: 2px solid #ff9900;
+    border-radius: 0.8rem;
     width: 40%;
     height: 0%;
 }
@@ -27,18 +27,23 @@
 .watch-page-headers {
     font-family: "Merienda", cursive;
     font-size: 1.3rem;
-    border-bottom: 1px solid rgba(83, 102, 99, 0.329);
-    border-top: 1px solid #53666354;
+    border: 1px solid #ff99004f;
+    border-bottom: none;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
     padding: 2rem;
+    background-color: #ff99004f;
 }
 
 .watch-page-headers h3 {
     margin: 0;
+    color: #fff;
     font-weight: 1000;
 }
 
 .watch-page-headers h2 {
     margin-top: 0;
+    color: #fff;
     font-weight: 1000;
 }
 
@@ -46,16 +51,20 @@
     font-size: 1rem;
     font-weight: 800;
     font-family: "Nunito", sans-serif;
-    color: #008f777c;
     margin: 0;
+    color: #fff;
 }
 
 .watch-page-price {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    color: #008f777c;
-    border-bottom: 1px solid #53666354;
+    color: #000;
+    border: 1px solid #53666354;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    background-color: #ff99004f;
+    border-top: none;
 }
 
 .watch-page-price p {
@@ -66,13 +75,14 @@
 
 #inta {
     font-size: 1rem;
-    color: #000;
+    color: #fff;
 }
 
 .watch-page-price button {
     margin-top: 2rem;
-    background-color: rgba(255, 153, 0, 0);
-    border: 1px solid #000;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
     padding: 0.5rem 0;
     font-size: 1.5rem;
     font-weight: 400;
@@ -143,7 +153,7 @@
     margin: 0;
     margin-bottom: 1rem;
     font-family: "Nunito", sans-serif;
-    color: #008f777c;
+    color: #ff9900;
 }
 
 
@@ -173,11 +183,12 @@
     .watch-page {
         padding: 0;
         flex-direction: column;
+        
     }
 
     .watch-page img {
         width: 90%;
-        border: 2.5rem solid #0e1416;
+        border: 1px solid #0e1416;
         align-self: center;
     }
 
@@ -189,13 +200,18 @@
 
     .watch-page-headers p {
         font-size: 1.2rem;
-        text-shadow: 1px 1px 5px #000;
+        text-shadow: 0px 3px 2px #07070633;
         padding-left: 1rem;
     }
 
     .watch-page-features {
-        padding: 2rem 10rem;
+        padding: 2rem 2rem;
+        font-size: 1.5rem;
     } 
+
+    .watch-page-features p {
+        color: #ff9900;
+    }
 
     .first-feat {
         margin: 0;

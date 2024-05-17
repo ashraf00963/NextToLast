@@ -56,17 +56,17 @@ function Watches({ watchId }) {
 
     return (
         <div className="watches-page">
-            <div className="watch-page">
+            <div className="watch-page black-gold-90deg">
                 <img src={`http://3.68.198.175:3002${watch.img}`} alt="ntl watch" />
                 <div className="watch-page-info">
                     <div className="watch-page-headers">
-                        <h3 className="gold-white-font">{watch.collection}</h3>
-                        <h2 className="gold-white-font">{watch.name}</h2>
+                        <h3>{watch.collection}</h3>
+                        <h2>{watch.name}</h2>
                         <p>{watch.description}</p>
                     </div>
                     <div className="watch-page-price">
                         {price &&
-                        <p>{price.toLocaleString('en-US', {
+                        <p className="green-white-font">{price.toLocaleString('en-US', {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                             })} $</p>

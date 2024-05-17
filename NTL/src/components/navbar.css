@@ -266,12 +266,11 @@
 }
 
 
-@media screen and (max-width: 335px) {
+@media screen and (max-width: 350px) {
     .ntl__logo h1 {
-        margin-top: 0.8rem;
-        margin-bottom: 0.6rem;
-        margin: 0.8rem 0 0.6rem 1rem;
-        font-size: 1.3rem;
+        margin: 1rem;
+        margin-right: 0;
+        font-size: 1.2rem;
     }
 
     .ntl__menu-bar button {
@@ -280,8 +279,9 @@
     }
 
     .menu-toggle {
-       width: 25px;
-       height: 25px;
+       width: 20px;
+       height: 20px;
+       font-size: 1.4rem;
     }
 
     .cards {
@@ -299,11 +299,25 @@
     }
 
     #user-icon_img img {
-        width: 25px;
+        width: 20px;
     }
 
     .bag-toggle img {
-        width: 25px;
+        width: 20px;
+        padding-top: 0.4rem;
     }
 
+    .sidebar__button-container p {
+        font-size: 1.2rem;
+    }
+
+    .sidebar__button span {
+        font-size: 1.2rem;
+    }
+
+    .sidebar__button-container li {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
 }
+

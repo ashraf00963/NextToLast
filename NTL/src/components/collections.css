@@ -59,6 +59,13 @@
     justify-content: space-between;
 }
 
+#collect-price {
+    height: fit-content;
+    align-self: end;
+    font-size: 0.85rem;
+    margin: 0 0.5rem 0.5rem 0;
+}
+
 .shopping-bag {
     text-align: center;
     margin: 0.5rem 0;
@@ -91,6 +98,7 @@
 
 .card p {
     margin: 0.1rem 0.5rem;
+    margin-right: 0;
    
 }
 
@@ -148,6 +156,10 @@
         white-space: nowrap;
     }
 
+    .card__titles-price p {
+        margin-left: 1rem;
+    }
+
     .collection-card h1 {
         font-size: 2.8rem;
     }
@@ -183,6 +195,11 @@
         font-size: 1.2rem;
     }
 
+    #collect-price {
+        font-size: 1.2rem;
+
+    }
+
 }
 
 @media screen and (max-width: 520px) {
@@ -199,7 +216,46 @@
         font-size: 0.7rem;
     }
 
+    .watch-name {
+        font-size: 0.9rem;
+    }
+
     .shopping-bag img {
         width: 6%;
+    }
+
+    .card__titles-price p {
+        margin-left: 0.5rem;
+    }
+    #collect-price {
+        font-size: 0.85rem;
+    }
+    
+    .bag-toggle {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 265px) {
+    .collection-card h1 {
+        font-size: 1.35rem;
+    }
+    
+    .card__watch-info span {
+        font-size: 0.7rem;
+        border: none;
+    }
+
+    .shopping-bag {
+        margin: 0;
+        
+    }
+
+    .collection-name {
+        font-size: 0.5rem;
+    }
+
+    #collect-price {
+        font-size: 0.75rem;
     }
 }

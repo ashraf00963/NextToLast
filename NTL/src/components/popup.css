@@ -23,13 +23,11 @@
     background: transparent;
     border: none;
     color: #ff9900;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 1000;
     cursor: pointer;
-    border: 1px solid #ff9900;
-    border-radius: 20px;
     padding: 0rem 0.32rem;
-    background-color: #ffffff;
+    font-family: "Nunito", sans-serif;
 }
 
 .popup-content {
@@ -46,16 +44,16 @@
 
 .popup-info button {
     background-color: transparent;
-    border: 1px solid #ff9900;
-    color: #fff;
+    border: 1px solid #0F1417;
+    color: #0F1417;
     width: 100%;
     font-family: "Nunito", sans-serif;
     margin: 0.5rem 0;
 }
 
 .popup-info button:hover {
-    background-color: #ff9900;
-    color: #5366639c;
+    background-color: #0F1417;
+    color: #fff;
 }
 
 @keyframes fadeIn {
@@ -72,6 +70,8 @@
     .popup {
         width: 80vw;
         background-color: #445853ec;
+        padding: 0.2rem;
+        top: 20%;
     }
 
     .popup-content {
@@ -88,17 +88,57 @@
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     .popup-content {
         flex-direction: column;
         margin: 0;
+        padding: 2rem 3.5rem;
     }
+
     .popup-info {
         padding: 0;
-        text-align: center;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+
+    .popup-info h2 {
+        margin: 1rem 0;
+    }
+
+    .popup-info p {
+        margin: 0;
+    }
+
+    .popup-info button {
+        width: 15rem;
+        color: #fff;
+        background-color: #0F1417;
+        border: 2px solid #fff;
+        margin-top: 1rem;
+        width: 100%;
     }
 
     .popup-content img {
         max-width: 14rem;
+        margin: 0;
+    }
+
+    .close-button {
+        font-family: "Nunito", sans-serif;
+        font-size: 1.5rem;
+        background-color: transparent;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .popup-info h2 {
+        font-size: 1.55rem;
+        text-align: center;
+    }
+
+    .popup-info p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
     }
 }

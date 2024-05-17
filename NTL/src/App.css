@@ -120,6 +120,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     background: linear-gradient(90deg, #000000 18%, #1F0000 50%);
 }
 
+.black-gold-90deg {
+    background: linear-gradient(0deg, #000000 30%, #ff99006c 80%);
+}
+
 .yellow-to-gray-90deg {
     background: #FF9900;
     background: linear-gradient(to right, #FF9900 43%, #767676 56%);
@@ -144,6 +148,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 .black-green-180deg {
     background: linear-gradient(180deg, #0F1417 35%, #0E3017 74%);
+}
+
+.white-gold-0deg {
+    background: linear-gradient(180deg, #0F1417 35%, #ff9900 85%);
 }
 
 .gray-green-gray-font-90deg {
