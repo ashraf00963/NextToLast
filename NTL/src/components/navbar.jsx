@@ -1,11 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Cart, UserIcon } from '../assets';
-import './navbar.css';
 import { AuthContext } from './AuthContext';
+import { BasketContext } from './BasketContext';
+import './navbar.css';
+
 
 function Navbar () {
     const { loggedIn, setLoggedIn } = useContext(AuthContext);
+    const { basketItems } = useContext(BasketContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isOpen, setIsOpen] = useState({
         section1: false,
@@ -13,7 +16,7 @@ function Navbar () {
         section3: false,
     });
 
-
+    const totalItems = basketItems.reduce((acc, item) => acc + item.quantity, 0);
     
 
     const toggleIsOpen = (section) => {
@@ -102,7 +105,8 @@ function Navbar () {
                 <div className='ntl__shopping-basket'>
                     <button className='bag-toggle'>
                         <Link to='/basket'>
-                            <img src={Cart} />
+                            <img src={Cart} /> 
+                            {totalItems > 0 && <span className='basket-count'>{totalItems}</span>}
                         </Link>
                     </button>
                 </div>

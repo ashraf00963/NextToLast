@@ -55,6 +55,59 @@
     color: #fff;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-select {
+    border: 1px solid #ff9900;
+    border-radius: 10px;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 150px; /* Adjust max-height as needed */
+    overflow-y: auto;
+    border: 1px solid #ff9900;
+    border-radius: 4px;
+    background-color: #000;
+    color: #ff9900;
+    z-index: 1;
+}
+
+.dropdown-options div {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown-options div:hover {
+    background-color: #ff9900;
+    color: #000;
+}
+
+/* Style scrollbar */
+.dropdown-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-options::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .two-buttons {
     display: flex;
     justify-content: center;

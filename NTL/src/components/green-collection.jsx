@@ -20,9 +20,12 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                         <img src={Green1} alt='metallic green ntl wrist watch' />
                     </Link>
                     <div className='card__watch-info'>
-                        <div className='card__titles'>
-                            <p className='collection-name green-white-font'>NTL Green Collection</p>
-                            <p className='watch-name green-white-font'>Shadow</p>
+                        <div className='card__titles-price'>
+                            <div className='card__titles'>
+                                <p className='collection-name green-white-font'>NTL Green Collection</p>
+                                <p className='watch-name green-white-font'>Shadow</p>
+                            </div>
+                            <p className="green-white-font">$999</p>
                         </div>
                         <div onClick={() => handleAddToBasket(4)} className='shopping-bag'>
                             <span>
@@ -37,9 +40,12 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                         <img src={Green2} alt='metallic green ntl wrist watch' />
                     </Link>
                     <div className='card__watch-info'>
-                        <div className='card__titels'>
-                           <p className='collection-name green-white-font'>NTL Green Collection</p>
-                            <p className='watch-name green-white-font'>Half Luck</p>
+                        <div className='card__titles-price'>
+                            <div className='card__titles'>
+                                <p className='collection-name green-white-font'>NTL Green Collection</p>
+                                <p className='watch-name green-white-font'>Half Luck</p>
+                            </div>
+                            <p className="green-white-font">$1199</p>
                         </div>
                         <div onClick={() => handleAddToBasket(5)} className='shopping-bag'>
                             <span>
@@ -54,9 +60,12 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                         <img src={Green3} alt='metallic green ntl wrist watch' />
                     </Link>
                     <div className='card__watch-info'>
-                        <div className='card__titles'>
-                            <p className='collection-name green-white-font'>NTL Green Collection</p>
-                            <p className='watch-name green-white-font'>Morning</p>
+                        <div className='card__titles-price'>
+                            <div className='card__titles'>
+                               <p className='collection-name green-white-font'>NTL Green Collection</p>
+                               <p className='watch-name green-white-font'>Morning</p>
+                            </div>
+                            <p className="green-white-font">$1399</p>
                         </div>
                         <div onClick={() => handleAddToBasket(6)} className='shopping-bag'>
                             <span>

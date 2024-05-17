@@ -1,10 +1,15 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
-import './watches.css';
+import { useState, useEffect, useContext } from "react";
 import Footer from "./footer";
+import Popup from "./popup";
+import { BasketContext } from "./BasketContext";
+import './watches.css';
 
 function Watches({ watchId }) {
     const [watch, setWatch] = useState({});
+    const { addToBasket } = useContext(BasketContext);
+    const [popup, setPopup] = useState({ show: false, watch: null });
+    const [isAddingToBasket, setIsAddingToBasket] = useState(false); // Add state to track if adding to basket is in progress
 
     const fetchWatch = async (watchId) => {
         try {
@@ -15,14 +20,30 @@ function Watches({ watchId }) {
         }
     };
     
-    const addToBasket = async (watchId) => {
+    const handleAddToBasket = async (watchId) => {
+        if (isAddingToBasket) return; // If adding to basket is already in progress, exit the function
+        
         try {
+            setIsAddingToBasket(true); // Set adding to basket in progress
+
             // Send the watch ID to the server to add it to the basket
             const response = await axios.post('http://3.68.198.175:3002/basket/add', { id: watchId });
             console.log('Watch added to basket:', response.data.watch);
+
+            // Show popup with the added watch details
+            setPopup({ show: true, watch });
+
+            // Update the basket context
+            addToBasket(response.data.watch);
         } catch (error) {
             console.error('Error adding watch to basket:', error);
+        } finally {
+            setIsAddingToBasket(false); // Reset adding to basket status
         }
+    };
+
+    const handleClosePopup = () => {
+        setPopup({ show: false, watch: null });
     };
 
     useEffect(() => {
@@ -51,7 +72,7 @@ function Watches({ watchId }) {
                             })} $</p>
                         }
                         <p id="inta">INCL. TAX.</p>
-                        <button onClick={() =>  addToBasket(watchId)}>Add to basket</button>
+                        <button onClick={() => handleAddToBasket(watchId)} disabled={isAddingToBasket}>Add to basket</button> {/* Disable button if adding to basket is in progress */}
                     </div>
                     <div className="watch-page-features">
                         <div className="first-feat">
@@ -66,6 +87,7 @@ function Watches({ watchId }) {
                 </div>
             </div>
             <Footer />
+            {popup.show && <Popup watch={popup.watch} onClose={handleClosePopup} />}
         </div> 
     );
 }

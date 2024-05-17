@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Navigate, useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './login.css';
 
 function Register() {
@@ -21,6 +21,32 @@ function Register() {
             navigate('/login');
         }
     }, [registered, navigate]);
+
+    const handleDropdownClick = () => {
+        const dropdownOptions = document.querySelector('.dropdown-options');
+        dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+    };
+
+    const handleOptionClick = (e) => {
+        const [selectedRegion, selectedCountry] = e.target.getAttribute('data-value').split('|');
+        setRegion(selectedRegion);
+        setCountry(selectedCountry);
+        document.querySelector('.dropdown-select').textContent = e.target.textContent;
+        document.querySelector('.dropdown-options').style.display = 'none';
+    };
+
+    const handleClickOutside = (event) => {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelector('.dropdown-options').style.display = 'none';
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -73,12 +99,6 @@ function Register() {
         }
     };
 
-    const handleRegionChange = (e) => {
-        const [selectedRegion, selectedCountry] = e.target.value.split('|');
-        setRegion(selectedRegion);
-        setCountry(selectedCountry);
-    };
-
     return (
         <div className='ntl__page'>
             <div className='ntl__page_card'>
@@ -97,28 +117,35 @@ function Register() {
                     <input className='black-red-90deg' type='text' id='postalCode' value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder='Postal Code' required />
                     <label>City</label>
                     <input className='black-red-90deg' type='text' id='city' value={city} onChange={(e) => setCity(e.target.value)} placeholder='City' required />
-                    <label>Region</label>
-                    <select onChange={handleRegionChange} value={`${region}|${country}`} className='reigon black-red-90deg'>
-                        <option value='€|Austria'>Austria - €</option>
-                        <option value='€|Belgium'>Belgium - €</option>
-                        <option value='€|Cyprus'>Cyprus - €</option>
-                        <option value='€|Estonia'>Estonia - €</option>
-                        <option value='€|Finland'>Finland - €</option>
-                        <option value='€|France'>France - €</option>
-                        <option value='€|Germany'>Germany - €</option>
-                        <option value='€|Greece'>Greece - €</option>
-                        <option value='€|Ireland'>Ireland - €</option>
-                        <option value='€|Italy'>Italy - €</option>
-                        <option value='€|Latvia'>Latvia - €</option>
-                        <option value='€|Lithuania'>Lithuania - €</option>
-                        <option value='€|Luxembourg'>Luxembourg - €</option>
-                        <option value='€|Malta'>Malta - €</option>
-                        <option value='€|Netherlands'>Netherlands - €</option>
-                        <option value='€|Portugal'>Portugal - €</option>
-                        <option value='€|Slovakia'>Slovakia - €</option>
-                        <option value='€|Slovenia'>Slovenia - €</option>
-                        <option value='$|United States'>United States - $</option>
-                    </select>
+                    <div className='account-input'>
+                        <label>Region and Country</label>
+                        <div className="dropdown">
+                            <div className="dropdown-select black-red-90deg" onClick={handleDropdownClick}>
+                                {region && country ? `${region} - ${country}` : 'Select an option'}
+                            </div>
+                            <div className="dropdown-options">
+                                <div data-value="€|Austria" onClick={handleOptionClick}>Austria</div>
+                                <div data-value="€|Belgium" onClick={handleOptionClick}>Belgium</div>
+                                <div data-value="€|Cyprus" onClick={handleOptionClick}>Cyprus</div>
+                                <div data-value="€|Estonia" onClick={handleOptionClick}>Estonia</div>
+                                <div data-value="€|Finland" onClick={handleOptionClick}>Finland</div>
+                                <div data-value="€|France" onClick={handleOptionClick}>France</div>
+                                <div data-value="€|Germany" onClick={handleOptionClick}>Germany</div>
+                                <div data-value="€|Greece" onClick={handleOptionClick}>Greece</div>
+                                <div data-value="€|Ireland" onClick={handleOptionClick}>Ireland</div>
+                                <div data-value="€|Italy" onClick={handleOptionClick}>Italy</div>
+                                <div data-value="€|Latvia" onClick={handleOptionClick}>Latvia</div>
+                                <div data-value="€|Lithuania" onClick={handleOptionClick}>Lithuania</div>
+                                <div data-value="€|Luxembourg" onClick={handleOptionClick}>Luxembourg</div>
+                                <div data-value="€|Malta" onClick={handleOptionClick}>Malta</div>
+                                <div data-value="€|Netherlands" onClick={handleOptionClick}>Netherlands</div>
+                                <div data-value="€|Portugal" onClick={handleOptionClick}>Portugal</div>
+                                <div data-value="€|Slovakia" onClick={handleOptionClick}>Slovakia</div>
+                                <div data-value="€|Slovenia" onClick={handleOptionClick}>Slovenia</div>
+                                <div data-value="$|United States" onClick={handleOptionClick}>United States</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='ntl__two-btn'>
                     <button onClick={handleSubmit}>Register</button>

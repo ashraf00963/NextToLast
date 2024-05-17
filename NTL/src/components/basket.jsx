@@ -1,4 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { BasketContext } from './BasketContext';
 import { AuthContext } from './AuthContext';
 import axios from 'axios';
 
@@ -6,8 +7,8 @@ import { Visa, Americanexpress, Maestro, Paypal, Paysafe, Klarna } from '../asse
 import './basket.css';
 
 function Basket() {
+    const { basketItems, setBasketItems, fetchBasketItems } = useContext(BasketContext);
     const { regionCur } = useContext(AuthContext);
-    const [basketItems, setBasketItems] = useState([]);
     const [address, setAddress] = useState('');
     const [checkoutStatus, setCheckoutStatus] = useState({ success: false, message: '' });
 
@@ -32,15 +33,6 @@ function Basket() {
         }
     );
 
-    const fetchBasketItems = () => {
-        instance.get('/basket/items')
-            .then(response => {
-                setBasketItems(response.data.map(item => ({ ...item, quantity: 1 })));
-            })
-            .catch(error => {
-                console.log('Error fetching basket items:', error);
-            });
-    };
 
     const fetchUserAddress = () => {
         const userId = localStorage.getItem('userId');
@@ -58,20 +50,19 @@ function Basket() {
     };
 
     useEffect(() => {
-        fetchBasketItems();
         fetchUserAddress();
     }, []);
-
-    const updateBasketItems = (updateBasket) => {
-        setBasketItems(updateBasket);
-    };
 
     const handleAddToBasket = (itemToAdd) => {
         const itemIndex = basketItems.findIndex(item => item.id === itemToAdd.id);
         if (itemIndex !== -1) {
             const updateBasket = [...basketItems];
             updateBasket[itemIndex].quantity += 1;
-            updateBasketItems(updateBasket);
+            setBasketItems(updateBasket);
+            instance.post('/basket/update', { id: itemToAdd.id, quantity: updateBasket[itemIndex].quantity })
+                .catch(error => {
+                    console.log('Error updating item quantity:', error);
+                });
         } else {
             instance.post('/basket/add', { id: itemToAdd.id })
                 .then(response => {
@@ -100,8 +91,12 @@ function Basket() {
                 updatedBasket.splice(itemIndex, 1);
             } else {
                 updatedBasket[itemIndex].quantity--;
+                instance.post('/basket/update', { id: itemToRemove.id, quantity: updatedBasket[itemIndex].quantity })
+                    .catch(error => {
+                        console.log('Error updating item quantity:', error);
+                    });
             }
-            updateBasketItems(updatedBasket);
+            setBasketItems(updatedBasket);
         }
     };
 
@@ -114,7 +109,7 @@ function Basket() {
             .catch(error => {
                 console.log('Error clearing basket:', error);
             });
-    };    
+    };
 
     const handleCheckOut = () => {
         handleClearBasket();

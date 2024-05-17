@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './account.css';
 
 function Account() {
-    const { loggedIn, logout } = useContext(AuthContext);
+    const { loggedIn, logout, userId } = useContext(AuthContext);
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -12,93 +12,101 @@ function Account() {
     const [street, setStreet] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [city, setCity] = useState('');
-    const [state, setState] = useState('');
+    const [country, setCountry] = useState('United States');
+    const [region, setRegion] = useState('');
     const [emailSettings, setEmailSettings] = useState(false);
     const [passwordSettings, setPasswordSettings] = useState(false);
     const [addressSettings, setAddressSettings] = useState(false);
 
     useEffect(() => {
-        // Fetch user data from the server
-        const fetchUserData = async () => {
+        const fetchUserEmail = async () => {
             try {
-                const response = await fetch('http://54.93.168.94:8080/auth-check');
+                const response = await fetch(`http://54.93.168.94:8080/account/email/${userId}`);
                 if (response.ok) {
-                    const userData = await response.json();
-                    if(userData.user) {
-                        setUser(userData.user.username);
-                        // Set other fields like street, postal code, city, and state if available
-                        if (userData.user.address) {
-                            setStreet(userData.user.address.street);
-                            setPostalCode(userData.user.address.postalCode);
-                            setCity(userData.user.address.city);
-                            setState(userData.user.address.state);
-                        }
-                    }
+                    const { email } = await response.json();
+                    setEmail(email);
                 } else {
-                    // Handle server error or unauthorized access
-                    console.error('Error fetching user data:', response.statusText);
+                    console.error('Error fetching user email:', response.statusText);
                 }
             } catch (error) {
-                // Handle network error
-                console.error('Error fetching user data:', error);
+                console.error('Error fetching user email:', error);
             }
         };
     
-        fetchUserData();
-    }, []);
+        const fetchUserAddress = async () => {
+            try {
+                const response = await fetch(`http://54.93.168.94:8080/account/address/${userId}`);
+                if (response.ok) {
+                    const { street, postalCode, city, region, country } = await response.json();
+                    setStreet(street);
+                    setPostalCode(postalCode);
+                    setCity(city);
+                    setRegion(region);
+                    setCountry(country);
+                } else {
+                    console.error('Error fetching user address:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user address:', error);
+            }
+        };
     
+        fetchUserEmail();
+        fetchUserAddress();
+    }, [userId]);
 
     const navigate = useNavigate();
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
-    }
+    };
 
     const handlePassword = (e) => {
         setPassword(e.target.value);
-    }
+    };
 
     const handleConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
-    }
+    };
 
     const handleStreet = (e) => {
         setStreet(e.target.value);
-    }
+    };
 
     const handlePostalCode = (e) => {
         setPostalCode(e.target.value);
-    }
+    };
 
     const handleCity = (e) => {
         setCity(e.target.value);
-    }
+    };
 
-    const handleState = (e) => {
-        setState(e.target.value);
-    }
+    const handleRegionChange = (selectedRegion, selectedCountry) => {
+        setRegion(selectedRegion);
+        setCountry(selectedCountry);
+    };
 
     const handleEmailSettings = () => {
         setEmailSettings(!emailSettings);
-    }
+    };
 
     const handlePasswordSettings = () => {
         setPasswordSettings(!passwordSettings);
-    }
+    };
 
     const handleAddressSettings = () => {
         setAddressSettings(!addressSettings);
-    }
+    };
 
     const handleLogout = () => {
         logout();
         navigate('/');
-    }
+    };
 
     const handleEmailSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://54.93.168.94:8080/account/email', {
+            const response = await fetch(`http://54.93.168.94:8080/account/email/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -118,7 +126,7 @@ function Account() {
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://54.93.168.94:8080/account/password', {
+            const response = await fetch(`http://54.93.168.94:8080/account/password/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -138,12 +146,12 @@ function Account() {
     const handleAddressSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://54.93.168.94:8080/account/address', {
+            const response = await fetch(`http://54.93.168.94:8080/account/address/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ address: { street, postalCode, city, state } })
+                body: JSON.stringify({ address: { street, postalCode, city, region, country } })
             });
             if (response.ok) {
                 alert('Address updated successfully');
@@ -154,7 +162,32 @@ function Account() {
             console.error('Error updating address:', error);
         }
     };
-    
+
+    // Dropdown functionality
+    const handleDropdownClick = () => {
+        const dropdownOptions = document.querySelector('.dropdown-options');
+        dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+    };
+
+    const handleOptionClick = (e) => {
+        const [selectedRegion, selectedCountry] = e.target.getAttribute('data-value').split('|');
+        handleRegionChange(selectedRegion, selectedCountry);
+        document.querySelector('.dropdown-select').textContent = e.target.textContent;
+        document.querySelector('.dropdown-options').style.display = 'none';
+    };
+
+    const handleClickOutside = (event) => {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelector('.dropdown-options').style.display = 'none';
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div className="account-page">
@@ -189,12 +222,12 @@ function Account() {
                         </div>
                     </>
                 }
-                <button onClick={handleAddressSettings}>Add Address</button>
+                <button onClick={handleAddressSettings}>Change Address</button>
                 {addressSettings &&
                     <>
                         <div className='account-input'>
                             <label>Street</label>
-                            <input className='black-red-90deg' type='text' value={street} onChange={handleStreet} />
+                            <input className='black-red-90deg' type='text' value={street} onChange={handleStreet} placeholder={street} />
                         </div>
                         <div className='account-input'>
                             <label>Postal Code</label>
@@ -205,11 +238,36 @@ function Account() {
                             <input className='black-red-90deg' type='text' value={city} onChange={handleCity} />
                         </div>
                         <div className='account-input'>
-                            <label>State</label>
-                            <input className='black-red-90deg' type='text' value={state} onChange={handleState} />
+                            <label>Region and Country</label>
+                            <div className="dropdown">
+                                <div className="dropdown-select black-red-90deg" onClick={handleDropdownClick}>
+                                    {region && country ? `${region} - ${country}` : 'Select an option'}
+                                </div>
+                                <div className="dropdown-options">
+                                    <div data-value="€|Austria" onClick={handleOptionClick}>Austria</div>
+                                    <div data-value="€|Belgium" onClick={handleOptionClick}>Belgium</div>
+                                    <div data-value="€|Cyprus" onClick={handleOptionClick}>Cyprus</div>
+                                    <div data-value="€|Estonia" onClick={handleOptionClick}>Estonia</div>
+                                    <div data-value="€|Finland" onClick={handleOptionClick}>Finland</div>
+                                    <div data-value="€|France" onClick={handleOptionClick}>France</div>
+                                    <div data-value="€|Germany" onClick={handleOptionClick}>Germany</div>
+                                    <div data-value="€|Greece" onClick={handleOptionClick}>Greece</div>
+                                    <div data-value="€|Ireland" onClick={handleOptionClick}>Ireland</div>
+                                    <div data-value="€|Italy" onClick={handleOptionClick}>Italy</div>
+                                    <div data-value="€|Latvia" onClick={handleOptionClick}>Latvia</div>
+                                    <div data-value="€|Lithuania" onClick={handleOptionClick}>Lithuania</div>
+                                    <div data-value="€|Luxembourg" onClick={handleOptionClick}>Luxembourg</div>
+                                    <div data-value="€|Malta" onClick={handleOptionClick}>Malta</div>
+                                    <div data-value="€|Netherlands" onClick={handleOptionClick}>Netherlands</div>
+                                    <div data-value="€|Portugal" onClick={handleOptionClick}>Portugal</div>
+                                    <div data-value="€|Slovakia" onClick={handleOptionClick}>Slovakia</div>
+                                    <div data-value="€|Slovenia" onClick={handleOptionClick}>Slovenia</div>
+                                    <div data-value="$|United States" onClick={handleOptionClick}>United States</div>
+                                </div>
+                            </div>
                         </div>
                         <div className='two-buttons'>
-                            <button onClick={handleAddressSubmit} type='submit'>Add Address</button>
+                            <button onClick={handleAddressSubmit} type='submit'>Change Address</button>
                         </div>
                     </>
                 }

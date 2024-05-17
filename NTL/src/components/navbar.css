@@ -96,7 +96,7 @@
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    margin-right: 25.5rem;
+    margin-right: 25rem;
 }
 
 .login-toggle {
@@ -134,14 +134,27 @@
 .bag-toggle {
     border: none;
     background-color: transparent;
+    
 }
 
 .bag-toggle a {
     width: fit-content;
+    text-decoration: none;
+    color: #ff5e00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bag-toggle img {
     width: 35px;
+}
+
+.basket-count {
+    font-family: "Merienda", cursive;
+    align-self: flex-start;
+    border-radius: 1rem;
+    font-size: 0.8rem;
 }
 
 .ntl__side-bar {
