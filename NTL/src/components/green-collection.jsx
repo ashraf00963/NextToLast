@@ -3,11 +3,7 @@ import { useState } from 'react';
 import { Green1, Green2, Green3, ShoppingBag } from '../assets';
 import './collections.css';
 
-function GreenCollection ({ addToBasket, setWatchId }) {
-    const handleAddToBasket = (watchId) => {
-        addToBasket(watchId);
-    }
-
+function GreenCollection ({ regionCur, setWatchId }) {
     const handleWatchId = (id) => {
         setWatchId(id);
     }
@@ -25,7 +21,7 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name green-white-font'>NTL Green Collection</p>
                                 <p className='watch-name green-white-font'>Shadow</p>
                             </div>
-                            <p className="green-white-font" id='collect-price'>$999</p>
+                            <p className="green-white-font" id='collect-price'>{regionCur}999</p>
                         </div>
                     </div>
                 </div>
@@ -39,7 +35,7 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name green-white-font'>NTL Green Collection</p>
                                 <p className='watch-name green-white-font'>Half Luck</p>
                             </div>
-                            <p className="green-white-font" id='collect-price'>$1199</p>
+                            <p className="green-white-font" id='collect-price'>{regionCur}1199</p>
                         </div>
                     </div>
                 </div>
@@ -53,7 +49,7 @@ function GreenCollection ({ addToBasket, setWatchId }) {
                                <p className='collection-name green-white-font'>NTL Green Collection</p>
                                <p className='watch-name green-white-font'>Morning</p>
                             </div>
-                            <p className="green-white-font" id='collect-price'>$1399</p>
+                            <p className="green-white-font" id='collect-price'>{regionCur}1399</p>
                         </div>
                     </div>
                 </div>

@@ -104,8 +104,18 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const handleDollerRegionChange = () => {
+        setRegionCur('$');
+        localStorage.setItem('region', '$');
+    };
+
+    const handleEuroRegionChange = () => {
+        setRegionCur('€');
+        localStorage.setItem('region', '€');
+    };
+
     return (
-        <AuthContext.Provider value={{ loggedIn, setLoggedIn, userId, logout, regionCur }}>
+        <AuthContext.Provider value={{ loggedIn, setLoggedIn, userId, logout, regionCur, handleDollerRegionChange, handleEuroRegionChange }}>
             {children}
         </AuthContext.Provider>
     );

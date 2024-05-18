@@ -4,12 +4,14 @@ import { Basket, BlueCollection, Footer, GreenCollection, Header, RedCollection 
 import Popup from './components/popup';
 import { BasketContext } from './components/BasketContext';
 import './App.css';
+import { AuthContext } from './components/AuthContext';
 
 
 function HomePage ({ setWatchId }) {
     const [watches, setWatches] = useState([]);
     const [popup, setPopup] = useState({ show: false, watch: null });
     const { addToBasket } = useContext(BasketContext);
+    const { regionCur } = useContext(AuthContext);
 
     const instance = axios.create({
         baseURL: 'http://3.68.198.175:3002',
@@ -60,9 +62,9 @@ function HomePage ({ setWatchId }) {
     return (
         <>
             <Header />
-            <RedCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} />
-            <GreenCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} />
-            <BlueCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} />
+            <RedCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} />
+            <GreenCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} />
+            <BlueCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} />
             <Footer />
             {popup.show && <Popup watch={popup.watch} onClose={handleClosePopup} />}
         </>

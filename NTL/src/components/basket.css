@@ -20,15 +20,12 @@
     align-items: flex-start;
     width: 60%;
 
-    background-color: #53666354;
     padding: 1rem;
-    padding-left: 2rem;
-    border: 1px solid #000;
 }
 
 .ntl__basket-items h2 {
-    width: 100%;
     margin: 1rem;
+    align-self: center;
 }
 
 .ntl__basket-list {
@@ -37,9 +34,9 @@
 
     list-style: none;
     padding: 0;
-
-    border-top: 1px solid #fff;
-    padding: 0.5rem;
+    padding-top: 1rem;
+    margin: 0;
+    border-top: 1px solid;
 }
 
 .ntl__basket-list img {
@@ -52,9 +49,11 @@
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
-   
-    border-bottom: 1px solid #fff;
+    position: relative;
     padding: 1rem;
+    background-color: #53666354;
+    border: 1px solid #fff;
+    margin: 1rem 0;
 }
 
 .basket-watch-img {
@@ -63,8 +62,24 @@
     flex-shrink: 0;
 }
 
+.remove-watch {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1.45rem;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 1000;
+}
+
 .item-details {
     margin: 0.5rem;
+    align-self: flex-start;
+    margin-top: 1rem;
 }
 
 .watch-collection {
@@ -88,6 +103,7 @@
     padding: 0 0.2rem;
     background-color: #536663;
     border: none;
+    cursor: pointer;
 }
 
 .watch-quantity {
@@ -101,13 +117,19 @@
     background-color: #704444f3;
     border: none;
     padding: 0 0.2rem;
+    cursor: pointer;
 }
 
 .ntl__basket-order_summary {
     display: flex;
     flex-direction: column;
+    position: fixed;
+    left: 60%;
+    margin: 2rem;
+    margin-top: 4.9rem;
+    margin-right: 10rem;
     
-    width: 40%;
+  
     height: fit-content;
 
     background-color: #53666354;
@@ -194,14 +216,13 @@
     .ntl__basket {
         flex-direction: column;
     }
-
-    .ntl__basket-items {
-        width: 100%;
-    }
-
-    
 }
 
+@media screen and (max-width: 1150px) {
+    .ntl__basket-order_summary {
+        margin-right: 1rem;
+    }
+}
 
 @media screen and (max-width: 900px) {
     .ntl__basket {
@@ -216,12 +237,18 @@
     .ntl__basket-order_summary {
         align-self: center;
         width: 80vw;
+        position: static;
+        margin-top: 0;
     }
 }
 
 @media screen and (max-width: 700px) {
+    .ntl__basket {
+        margin: 5rem 0;
+    }
     .ntl__basket-items {
-        width: 80%;
+        padding: 1rem 0;
+        width: 85vw;
     }
 
     .basket-item img {
@@ -233,6 +260,14 @@
     .basket-item img {
         width: 50%;
     }
+    
+    .watch-name {
+        font-size: 1.25rem;
+    }
+
+    .remove-watch {
+        font-size: 1.25rem;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -241,13 +276,16 @@
         margin-top: 5rem;
     }
 
-    .ntl__basket-list li {
+    .ntl__basket-items {
         width: 100%;
-        border: none;
+    }
+
+    .basket-item {
+        margin: 0.5rem 1rem;
     }
 
     .basket-item img {
-        width: 55%;
+        width: 50%;
     }
     
     .watch-collection {

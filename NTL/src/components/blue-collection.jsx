@@ -3,11 +3,7 @@ import { useState } from "react";
 import { Blue1, Blue2,  Blue3, ShoppingBag } from "../assets";
 import './collections.css';
 
-function BlueCollection ({ addToBasket, setWatchId }) {
-    const handleAddToBasket = (watchId) => {
-        addToBasket(watchId);
-    }
-
+function BlueCollection ({ regionCur, setWatchId }) {
     const handleWatchId = (id) => {
         setWatchId(id);
     }
@@ -26,7 +22,7 @@ function BlueCollection ({ addToBasket, setWatchId }) {
                                 <p className="collection-name blue-white-font">NTL Blue Collection</p>
                                 <p className="watch-name blue-white-font">Black River</p>
                             </div>
-                            <p className="blue-white-font" id='collect-price'>$1299</p>
+                            <p className="blue-white-font" id='collect-price'>{regionCur}1299</p>
                         </div>
                     </div>
                 </div>
@@ -40,7 +36,7 @@ function BlueCollection ({ addToBasket, setWatchId }) {
                                 <p className="collection-name blue-white-font">NTL Blue Collection</p>
                                 <p className="watch-name blue-white-font">Black Sand</p>
                             </div>
-                            <p className="blue-white-font" id='collect-price'>$1599</p>
+                            <p className="blue-white-font" id='collect-price'>{regionCur}1599</p>
                         </div>
                     </div>
                 </div>
@@ -54,7 +50,7 @@ function BlueCollection ({ addToBasket, setWatchId }) {
                                 <p className="collection-name blue-white-font">NTL Blue Collection</p>
                                 <p className="watch-name blue-white-font">Black Castle</p>
                             </div>
-                            <p className="blue-white-font" id='collect-price'>$1099</p>
+                            <p className="blue-white-font" id='collect-price'>{regionCur}1099</p>
                         </div>
                     </div>
                 </div>

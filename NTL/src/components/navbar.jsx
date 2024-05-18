@@ -7,13 +7,14 @@ import './navbar.css';
 
 
 function Navbar () {
-    const { loggedIn, setLoggedIn } = useContext(AuthContext);
+    const { loggedIn, setLoggedIn, handleEuroRegionChange, handleDollerRegionChange } = useContext(AuthContext);
     const { basketItems } = useContext(BasketContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isOpen, setIsOpen] = useState({
         section1: false,
         section2: false,
         section3: false,
+        section4: false,
     });
 
     const totalItems = basketItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -40,6 +41,7 @@ function Navbar () {
             setLoggedIn(false);
         }
     };
+
 
     return (
         <div className='ntl__navbar black-red-90deg'>
@@ -79,6 +81,16 @@ function Navbar () {
                             <Link to='/'><li>Purses</li></Link>
                             <Link to='/'> <li>Scarves</li></Link>
                             <Link to='/'> <li>Belts</li></Link>
+                        </ul>
+                    </div>
+                    <div className='sidebar__button-container'>
+                        <div className='sidebar__button' onClick={() => toggleIsOpen('section4')}>
+                            <p>Watches</p>
+                            <span className='btn'>{isOpen.section1 ? '△' : '▽' }</span>
+                        </div>
+                        <ul className={`sidebar__lists ${isOpen.section4 ? 'isOpen' : ''}`}>
+                            <li><button className='doller' onClick={handleDollerRegionChange}>$</button></li>
+                            <li><button className='euro' onClick={handleEuroRegionChange}>€</button></li>
                         </ul>
                     </div>
                 </div>

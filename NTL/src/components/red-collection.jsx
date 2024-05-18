@@ -3,11 +3,7 @@ import { useState } from 'react';
 import { Red1, Red2, Red3, ShoppingBag } from '../assets';
 import './collections.css';
 
-function RedCollection ({ addToBasket, setWatchId }) {
-    const handleAddToBasket = (watchId) => {
-        addToBasket(watchId);
-    }
-    
+function RedCollection ({ regionCur, setWatchId }) {
     const handleWatchId = (id) => {
         setWatchId(id);
     }
@@ -26,7 +22,7 @@ function RedCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name red-white-font'>NTL Red Collection</p>
                                 <p className='watch-name red-white-font'>Red Posh</p>
                             </div>
-                            <p className='red-white-font' id='collect-price'>$899</p>
+                            <p className='red-white-font' id='collect-price'>{regionCur}899</p>
                         </div>
                     </div>
                 </div>
@@ -40,7 +36,7 @@ function RedCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name red-white-font'>NTL Red Collection</p>
                                 <p className='watch-name red-white-font'>RedEye</p>
                             </div>
-                            <p className='red-white-font' id='collect-price'>$999</p>
+                            <p className='red-white-font' id='collect-price'>{regionCur}999</p>
                         </div>
                     </div>
                 </div>
@@ -54,7 +50,7 @@ function RedCollection ({ addToBasket, setWatchId }) {
                                 <p className='collection-name red-white-font'>NTL Red Collection</p>
                                 <p className='watch-name red-white-font'>RedSteel</p>
                             </div>
-                            <p className='red-white-font' id='collect-price'>$1099</p>
+                            <p className='red-white-font' id='collect-price'>{regionCur}1099</p>
                         </div>
                     </div>
                 </div>

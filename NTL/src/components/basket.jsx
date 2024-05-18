@@ -100,6 +100,18 @@ function Basket() {
         }
     };
 
+    const handleRemoveWatchBtn = (itemToRemove) => {
+        instance.post('/basket/removeWatch', { id: itemToRemove.id })
+            .then(response => {
+                console.log(response.data.message);
+                fetchBasketItems();  // Fetch updated items from server
+            })
+            .catch(error => {
+                console.log('Error completely removing item from basket:', error);
+            });
+    };
+    
+
     const handleClearBasket = () => {
         instance.post('/basket/clear')
             .then(response => {
@@ -137,6 +149,7 @@ function Basket() {
                     <ul className='ntl__basket-list'>
                         {basketItems.map(item => (
                             <li className='basket-item' key={item.id}>
+                                <button className="remove-watch" onClick={() => handleRemoveWatchBtn(item)}>X</button>
                                 <img className='basket-watch-img' src={`http://3.68.198.175:3002${item.img}`} alt='watch' />
                                 <div className='item-details'>
                                     <div className='watch-collection'>{item.collection}</div>

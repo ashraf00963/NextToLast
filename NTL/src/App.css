@@ -20,6 +20,11 @@ html {
     -ms-overflow-style: none; /* Hide the scrollbar in IE/Edge */
 }
 
+button, a {
+    outline: none;
+    cursor: pointer;
+}
+
 body {
     margin: auto 12.5rem;
     padding: 0;
@@ -121,7 +126,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 .black-gold-90deg {
-    background: linear-gradient(0deg, #000000 30%, #ff99006c 80%);
+    background: linear-gradient(180deg, #000000 30%, #ff99006c 80%);
 }
 
 .yellow-to-gray-90deg {

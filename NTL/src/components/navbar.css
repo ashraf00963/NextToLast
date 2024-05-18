@@ -305,6 +305,7 @@
     .bag-toggle img {
         width: 20px;
         padding-top: 0.4rem;
+        padding-right: 0.2rem;
     }
 
     .sidebar__button-container p {

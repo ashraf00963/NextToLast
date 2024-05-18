@@ -8,6 +8,7 @@ import Basket from './components/basket';
 import Account from './components/Login/account';
 import Watches from './components/watches';
 import { BasketProvider } from './components/BasketContext';
+import ScrollToTop from './components/scrollToTop';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <AuthProvider>
       <BasketProvider>
         <Router>
+          <ScrollToTop />
             <Navbar />
               <Routes>
                 <Route exact path='/' element={<HomePage setWatchId={setWatchId} />} />

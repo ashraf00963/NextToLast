@@ -43,9 +43,10 @@
 }
 
 .popup-info button {
-    background-color: transparent;
-    border: 1px solid #0F1417;
-    color: #0F1417;
+    background-color: #0F1417;
+    border: 1px solid #ff9900;
+    border-radius: 2rem;
+    color: #ff9900;
     width: 100%;
     font-family: "Nunito", sans-serif;
     margin: 0.5rem 0;
@@ -111,9 +112,9 @@
 
     .popup-info button {
         width: 15rem;
-        color: #fff;
+        color: #ff9900;
         background-color: #0F1417;
-        border: 2px solid #fff;
+        border: 2px solid #ff9900;
         margin-top: 1rem;
         width: 100%;
     }
