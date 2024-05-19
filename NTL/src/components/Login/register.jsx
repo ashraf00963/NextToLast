@@ -9,8 +9,8 @@ function Register() {
     const [street, setStreet] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [city, setCity] = useState('');
-    const [region, setRegion] = useState('$');
-    const [country, setCountry] = useState('United States');
+    const [region, setRegion] = useState('€');
+    const [country, setCountry] = useState('Germany');
     const [error, setError] = useState(null);
     const [registered, setRegistered] = useState(false);
 
@@ -76,13 +76,10 @@ function Register() {
                 body: JSON.stringify({
                     username: email,
                     password,
-                    address: {
-                        street,
-                        postalCode,
-                        city,
-                        region,
-                        country
-                    }
+                    street,
+                    postalcode: postalCode, // Ensure this matches the backend
+                    city,
+                    country
                 }),
             });
 
@@ -103,7 +100,7 @@ function Register() {
         <div className='ntl__page'>
             <div className='ntl__page_card'>
                 <h2>Register</h2>
-                <p>{error}</p>
+                {error && <p>{error}</p>}
                 <div className='ntl__page_input'>
                     <label>Email</label>
                     <input className='black-red-90deg' type='email' id='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address' required />

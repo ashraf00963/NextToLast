@@ -1,0 +1,163 @@
+.confirmation-page-container {
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.confirmation-page {
+    padding: 0rem;
+    width: 75%;
+    background-color: #53666354;
+    border: 1px solid #ff9900;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+}
+
+.delivery-details-info span {
+    font-weight: 700;
+}
+  
+#margin-btm {
+  margin-bottom: 1rem;
+}
+
+#to-right {
+   margin-top: 0.2rem;
+}
+
+#margin-top {
+    margin-top: 1rem;
+    color: #ff9900;
+}
+
+#logo-n {
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+#color-ch {
+    color: #ff9900;
+}
+
+.confirmation-page .delivery-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.delivery-details-info {
+  align-self: center;
+  padding: 0 1rem;
+}
+
+.confirmation-page h2 {
+  font-size: 2rem;
+  margin: 0.2rem 0;
+
+}
+
+.confirmation-page p {
+  margin: 0;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #53666354;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.home-button button{
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+    transition: background 0.3s ease;
+}
+
+.home-button button:hover {
+  background-color: #000;
+}
+  
+
+@media screen and (max-width:750px) {
+    .confirmation-page-container {
+        margin: 0;
+        margin-top: 4.5rem;
+        height: 100vh;
+        border-radius: 0;
+        border: 0;
+        font-size: 1.2rem;
+    }
+
+    .delivery-details {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .confirmation-page {
+        font-size: 1rem;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .confirmation-page h2 {
+        font-size: 1.8rem;
+    }
+
+    .home-button {
+        background-color: transparent;
+    }
+
+    .home-button button {
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+    .confirmation-page-container {
+        margin-top: 1.5rem;
+    }
+
+    .confirmation-page {
+        margin-top: 0.5rem;
+    }
+
+    .confirmation-page h2 {
+        font-size: 1.05rem;
+        margin: 1rem 0;
+    }
+
+    .confirmation-page h3 {
+        margin: 0.5rem 0;
+        font-size: 0.8rem;
+    }
+
+    .confirmation-page p {
+        font-size: 0.8rem;
+    }
+
+    #logo-n {
+        font-size: 1rem;
+    }
+
+    .home-button button {
+        font-size: 1rem;
+    }
+}

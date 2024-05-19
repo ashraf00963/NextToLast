@@ -1,13 +1,15 @@
 import { useContext, useState, useEffect } from 'react';
 import { BasketContext } from './BasketContext';
 import { AuthContext } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { Visa, Americanexpress, Maestro, Paypal, Paysafe, Klarna } from '../assets';
 import './basket.css';
+import { Link } from 'react-router-dom';
 
 function Basket() {
-    const { basketItems, setBasketItems, fetchBasketItems } = useContext(BasketContext);
+    const { basketItems, setBasketItems, fetchBasketItems, calculateTotalPrice } = useContext(BasketContext);
     const { regionCur } = useContext(AuthContext);
     const [address, setAddress] = useState('');
     const [checkoutStatus, setCheckoutStatus] = useState({ success: false, message: '' });
@@ -123,8 +125,12 @@ function Basket() {
             });
     };
 
+    const navigate = useNavigate();
+
     const handleCheckOut = () => {
-        handleClearBasket();
+        const totalPrice1 = calculateTotalPrice();
+        navigate('/delivery', { state: { totalPrice1 }});
+
         setCheckoutStatus({ success: true, message: `Thank you for your purchase with the total of ${regionCur}${totalPrice.toFixed(2)}. The order will be delivered shortly to ${joinedDelivery}.` });
     };
 
@@ -137,14 +143,17 @@ function Basket() {
     const taxLabel = regionCur === '$' ? 'Sales Tax' : 'VAT';
     const taxPrice = basketItems.length > 0 ? basketItems.reduce((tax, item) => tax + (item.quantity * 92), 0) : 0;
     const totalPrice = price + shippingPrice + taxPrice;
-    const delivery = JSON.stringify(address); 
-    const deliveryValues = Object.values(address);
-    const joinedDelivery = deliveryValues.join(', ');
 
     return (
         <div className='ntl__basket'>
             <div className='ntl__basket-items'>
                 <h2>My Basket</h2>
+                <div className='checkout-breadcrumbs'>
+                    <p id='i-am-here'>1. Basket</p>
+                    <p>2. Shipping</p>
+                    <p>3. Payment</p>
+                    <p>4. Confirmation</p>
+                </div>
                 {basketItems && basketItems.length > 0 && (
                     <ul className='ntl__basket-list'>
                         {basketItems.map(item => (
@@ -164,7 +173,11 @@ function Basket() {
                             </li>
                         ))}
                     </ul>
-                )}
+                ) || 
+                <div className='empty-basket'>
+                    <h3>No Items in Basket</h3> <Link to='/'><p>Go Home!!</p></Link>
+                </div>
+                }
             </div>
             <div className='ntl__basket-order_summary'>
                 <h2>Order Summary</h2>

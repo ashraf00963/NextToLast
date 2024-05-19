@@ -9,6 +9,9 @@ import Account from './components/Login/account';
 import Watches from './components/watches';
 import { BasketProvider } from './components/BasketContext';
 import ScrollToTop from './components/scrollToTop';
+import Delivery from './components/delivery';
+import Payment from './components/payment';
+import Confirmation from './components/confirm';
 
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
                 <Route path='/account' element={<Account />} />
                 <Route path='/basket' element={<Basket />} />
                 <Route path='/watch' element={<Watches watchId={watchId} />} />
+                <Route path='/delivery' element={<Delivery />} />
+                <Route path='/payment' element={<Payment />} />
+                <Route path='/confirmation' element={<Confirmation />} />
               </Routes>
         </Router>
       </BasketProvider>

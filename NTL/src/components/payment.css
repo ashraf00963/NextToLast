@@ -1,0 +1,159 @@
+/* Updated CSS for Payment component */
+
+.payment-page {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 10rem;
+    color: #fff;
+}
+
+.payment-form {
+    width: 100%;
+    max-width: 600px;
+    background: #53666354; /* Changed background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Nunito", sans-serif; /* Changed font family */
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-method {
+    margin-bottom: 20px;
+}
+
+.card-icons-payment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #53666354;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card-icons-payment p {
+    margin: 0;
+}
+
+.card-icons-payment img {
+    height: 20px;
+    margin-left: 10px;
+}
+
+.card-icons-payment:hover {
+    background: #ff9900;
+}
+
+.payment-info {
+    display: none;
+    margin-top: 10px;
+}
+
+.payment-info.isOpen {
+    display: block;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+}
+
+.card-number {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ff9900;
+    border-radius: 5px;
+    background-color: #53666354;
+}
+
+.expiry-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.expiry-input,
+.cvc-input {
+    padding: 10px;
+    border: 1px solid #ff9900;
+    background-color: #53666354;
+    border-radius: 5px;
+    width: 50px;
+}
+
+.cvc-input {
+    margin-left: 10px;
+}
+
+
+.paypal-btn, .klarna-btn, .paysafe-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.klarna-btn {
+    background-color: #ffa8cd;
+}
+
+.paysafe-btn {
+    background-color: #fff;
+    color: #ff9900;
+}
+
+.paypal-btn:hover, .klarna-btn:hover, .paysafe-btn:hover {
+    background: #000;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #218838;
+}
+
+@media screen and (max-width: 700px) {
+    .payment-form {
+        width: 80%;
+    }
+
+    .card-number {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-input {
+        width: 95%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .checkout-breadcrumbs {
+        font-size: 0.8rem;
+    }
+}

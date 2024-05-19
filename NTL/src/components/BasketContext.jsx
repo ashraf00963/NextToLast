@@ -22,6 +22,10 @@ export const BasketProvider = ({ children }) => {
         });
     };
 
+    const calculateTotalPrice = () => {
+        return basketItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
     const fetchBasketItems = () => {
         instance.get('/basket/items')
             .then(response => {
@@ -36,8 +40,19 @@ export const BasketProvider = ({ children }) => {
         fetchBasketItems();
     }, []);
 
+    const handleClearBasket = () => {
+        instance.post('/basket/clear')
+            .then(response => {
+                console.log(response.data.message);
+                fetchBasketItems();
+            })
+            .catch(error => {
+                console.log('Error clearing basket:', error);
+            });
+    };
+
     return (
-        <BasketContext.Provider value={{ basketItems, setBasketItems, addToBasket, fetchBasketItems }}>
+        <BasketContext.Provider value={{ basketItems, setBasketItems, addToBasket, fetchBasketItems, calculateTotalPrice, handleClearBasket }}>
             {children}
         </BasketContext.Provider>
     );

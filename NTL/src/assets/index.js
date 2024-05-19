@@ -24,6 +24,7 @@ import Paysafe from './pay-safe.png';
 import Americanexpress from './american-express.png';
 import Visa from './visa.png';
 import UserIcon from './user-gold.png';
+import Exchange from './exchange.png';
 
 export {
     Video,
@@ -52,4 +53,5 @@ export {
     Klarna,
     Americanexpress,
     UserIcon,
+    Exchange,
 };

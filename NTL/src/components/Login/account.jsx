@@ -37,9 +37,9 @@ function Account() {
             try {
                 const response = await fetch(`http://54.93.168.94:8080/account/address/${userId}`);
                 if (response.ok) {
-                    const { street, postalCode, city, region, country } = await response.json();
+                    const { street, postalcode, city, region, country } = await response.json();
                     setStreet(street);
-                    setPostalCode(postalCode);
+                    setPostalCode(postalcode);
                     setCity(city);
                     setRegion(region);
                     setCountry(country);
@@ -151,7 +151,7 @@ function Account() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ address: { street, postalCode, city, region, country } })
+                body: JSON.stringify({ street, postalcode: postalCode, city, region, country }) // Ensure postalcode matches backend
             });
             if (response.ok) {
                 alert('Address updated successfully');
@@ -162,6 +162,7 @@ function Account() {
             console.error('Error updating address:', error);
         }
     };
+    
 
     // Dropdown functionality
     const handleDropdownClick = () => {
@@ -227,7 +228,7 @@ function Account() {
                     <>
                         <div className='account-input'>
                             <label>Street</label>
-                            <input className='black-red-90deg' type='text' value={street} onChange={handleStreet} placeholder={street} />
+                            <input className='black-red-90deg' type='text' value={street} onChange={handleStreet} placeholder={street ? street : 'Street'} />
                         </div>
                         <div className='account-input'>
                             <label>Postal Code</label>

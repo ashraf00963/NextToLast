@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Cart, UserIcon } from '../assets';
+import { Cart, UserIcon, Exchange } from '../assets';
 import { AuthContext } from './AuthContext';
 import { BasketContext } from './BasketContext';
 import './navbar.css';
@@ -53,7 +53,7 @@ function Navbar () {
                     <div className='sidebar__button-container'>
                         <div className='sidebar__button' onClick={() => toggleIsOpen('section1')}>
                             <p>Watches</p>
-                            <span className='btn'>{isOpen.section1 ? '△' : '▽' }</span>
+                            <span className='btn'>{isOpen.section1 ? '-' : '+' }</span>
                         </div>
                         <ul className={`sidebar__lists ${isOpen.section1 ? 'isOpen' : ''}`}>
                             <Link to='/'><li>Find Your NTL</li></Link>
@@ -64,7 +64,7 @@ function Navbar () {
                     <div className='sidebar__button-container'>
                         <div className='sidebar__button' onClick={() => toggleIsOpen('section2')}>
                             <p>Jewelry</p>
-                            <span className='btn'>{isOpen.section2 ? '△' : '▽' }</span>
+                            <span className='btn'>{isOpen.section2 ? '-' : '+' }</span>
                         </div>
                         <ul className={`sidebar__lists ${isOpen.section2 ? 'isOpen' : ''}`}>
                             <Link to='/'><li>Bracelets</li></Link>
@@ -75,7 +75,7 @@ function Navbar () {
                     <div className='sidebar__button-container'>
                         <div className='sidebar__button' onClick={() => toggleIsOpen('section3')}>
                             <p>Accessories</p>
-                            <span className='btn'>{isOpen.section3 ? '△' : '▽' }</span>
+                            <span className='btn'>{isOpen.section3 ? '-' : '+' }</span>
                         </div>
                         <ul className={`sidebar__lists ${isOpen.section3 ? 'isOpen' : ''}`}>
                             <Link to='/'><li>Purses</li></Link>
@@ -83,10 +83,10 @@ function Navbar () {
                             <Link to='/'> <li>Belts</li></Link>
                         </ul>
                     </div>
-                    <div className='sidebar__button-container'>
-                        <div className='sidebar__button' onClick={() => toggleIsOpen('section4')}>
-                            <p>Watches</p>
-                            <span className='btn'>{isOpen.section1 ? '△' : '▽' }</span>
+                    <div className='sidebar__button-container' id='img-exchange'>
+                        <div className='sidebar__button'  onClick={() => toggleIsOpen('section4')}>
+                            <img src={Exchange} alt='euro and doller exchange icon' />
+                            <span className='btn'>{isOpen.section4 ? '+' : '-' }</span>
                         </div>
                         <ul className={`sidebar__lists ${isOpen.section4 ? 'isOpen' : ''}`}>
                             <li><button className='doller' onClick={handleDollerRegionChange}>$</button></li>

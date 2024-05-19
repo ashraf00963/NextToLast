@@ -1,0 +1,91 @@
+.checkout-page {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10rem;
+    position: relative;
+    font-family: "Nunito", sans-serif;
+    color: #fff;
+    outline: none;
+}
+
+.checkout-form {
+    width: 60%;
+    text-align: center;
+    margin: 0 1rem;
+    
+}
+
+.checkout-form h2 {
+    margin-bottom: 0;
+}
+
+.two-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.1rem;
+}
+
+.two-fields input {
+    padding: 0.3rem 0.15rem;
+    font-family: "Nunito", sans-serif;
+    background-color: #53666354;
+    color: #ff9900;
+    border: 1px solid #ff9900;
+    margin: 0.1rem 0;
+    outline: none;
+    width: 97.9%;
+}
+
+.error::placeholder {
+    color: red;
+}
+
+.field input {
+    padding: 0.3rem 0.15rem;
+    font-family: "Nunito", sans-serif;
+
+    background-color: #53666354;
+    color: #ff9900;
+    border: 1px solid #ff9900;
+    margin: 0.1rem 0;
+    outline: none;
+}
+
+.field select {
+    width: 100%;
+    padding: 0.3rem 0.15rem;
+    font-family: "Nunito", sans-serif;
+    background-color: #53666354;
+    color: #ff9900;
+    border: 1px solid #ff9900;
+    margin: 0.1rem 0;
+    outline: none;
+}
+
+.sec-checkout {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    width: 100%;
+}
+
+.checkout-breadcrumbs {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 900px) {
+    .checkout-page {
+        flex-direction: column;
+        margin-top: 6rem;
+    }
+
+    .checkout-form {
+        width: 85%;
+        margin: 0 2rem;
+        align-self: center;
+        margin-bottom: 5rem;
+    }
+}
