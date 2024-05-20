@@ -14,14 +14,14 @@ function HomePage ({ setWatchId }) {
     const { regionCur } = useContext(AuthContext);
 
     const instance = axios.create({
-        baseURL: 'http://3.68.198.175:3002',
+        baseURL: 'http://watchapi.nexttolast.online:7533',
     });
 
     useEffect(() => {
         // Function to fetch all watches from the server
         const fetchWatches = async () => {
             try {
-                const response = await axios.get('http://3.68.198.175:3002/watches');
+                const response = await axios.get('http://watchapi.nexttolast.online:7533/watches');
                 setWatches(response.data);
             } catch (error) {
                 console.error('Error fetching watches:', error);
@@ -38,7 +38,7 @@ function HomePage ({ setWatchId }) {
         }
         try {
             // Send the watch ID to the server to add it to the basket
-            const response = await axios.post('http://3.68.198.175:3002/basket/add', { id: watchId });
+            const response = await axios.post('http://watchapi.nexttolast.online:7533/basket/add', { id: watchId });
             console.log('Watch added to basket:', response.data.watch);
 
             // Find the added watch details

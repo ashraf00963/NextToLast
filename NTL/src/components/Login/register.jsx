@@ -68,7 +68,7 @@ function Register() {
         }
 
         try {
-            const response = await fetch('http://54.93.168.94:8080/register', {
+            const response = await fetch('http://auth.nexttolast.online:7532/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

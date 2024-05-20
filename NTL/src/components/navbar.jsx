@@ -32,7 +32,7 @@ function Navbar () {
     }
 
     const handleLogout = async () => {
-        const response = await fetch('http://54.93.168.94:8080/logout', {
+        const response = await fetch('http://auth.nexttolast.online:7532/logout', {
             method: 'POST',
             credentials: 'include',
         });

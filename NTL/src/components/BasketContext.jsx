@@ -7,7 +7,7 @@ export const BasketProvider = ({ children }) => {
     const [basketItems, setBasketItems] = useState([]);
 
     const instance = axios.create({
-        baseURL: 'http://3.68.198.175:3002',
+        baseURL: 'http://watchapi.nexttolast.online:7533',
     });
 
     const addToBasket = (item) => {

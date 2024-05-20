@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
     const checkAuth = async () => {
         try {
-            const response = await fetch('http://54.93.168.94:8080/auth-check', {
+            const response = await fetch('http://auth.nexttolast.online:7532/auth-check', {
                 method: 'GET',
                 credentials: 'include',
             });
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
 
     const fetchRegionCurrency = async (userId) => {
         try {
-            const response = await fetch(`http://54.93.168.94:8080/account/address/${userId}`, {
+            const response = await fetch(`http://auth.nexttolast.online:7532/account/address/${userId}`, {
                 method: 'GET',
                 credentials: 'include',
             });
@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            const response = await fetch('http://54.93.168.94:8080/logout', {
+            const response = await fetch('http://auth.nexttolast.online:7532/logout', {
                 method: 'POST',
                 credentials: 'include',
             });

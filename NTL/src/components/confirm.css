@@ -91,6 +91,11 @@
 .home-button button:hover {
   background-color: #000;
 }
+
+.home-button a {
+    text-decoration: none;
+    color: #fff;
+}
   
 
 @media screen and (max-width:750px) {

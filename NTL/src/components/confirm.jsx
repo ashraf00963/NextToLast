@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 import './confirm.css';
 
@@ -23,7 +23,7 @@ function Confirmation() {
                         <p id='to-right'>{email}</p>
                     </div>
                     <div className='home-button'>
-                        <button onClick={() => history.push('/')}>Go to Homepage</button>
+                        <button><Link to='/' id='dec-text'>Go to Homepage</Link></button>
                     </div>
                 </div>
             </div>

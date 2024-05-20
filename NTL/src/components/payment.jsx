@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Americanexpress, Klarna, Maestro, Paypal, Paysafe, Visa } from '../assets';
 import './payment.css';
 import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { BasketContext } from './BasketContext';
 
 function Payment () {
     const [isOpen, setIsOpen] = useState({
@@ -19,6 +21,13 @@ function Payment () {
     const navigate = useNavigate();
     const location = useLocation();
     const { Fname, totalPrice, street, postalCode, city, country, email } = location.state;
+    const { fetchBasketItems } = useContext(BasketContext);
+
+
+    const instance = axios.create({
+        baseURL: 'http://watchapi.nexttolast.online:7533',
+    });
+
 
     const toggleIsOpen = (section) => {
         setIsOpen(prevState => ({
@@ -26,6 +35,17 @@ function Payment () {
                 Object.entries(prevState).map(([key, value]) => [key, key === section])
             )
         }));
+    };
+
+    const handleClearBasket = () => {
+        instance.post('/basket/clear')
+            .then(response => {
+                console.log(response.data.message);
+                fetchBasketItems();
+            })
+            .catch(error => {
+                console.log('Error clearing basket:', error);
+            });
     };
     
 
@@ -52,6 +72,7 @@ function Payment () {
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate('/confirmation', { state: { Fname, totalPrice, street, postalCode, city, country, email } });
+        handleClearBasket();
     }
 
     return (
