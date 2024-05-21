@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './popup.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 function Popup({ watch, onClose }) {
+    const { regionCur } = useContext(AuthContext);
+    const [price, setPrice] = useState(watch.price);
+
+    useEffect(() => {
+        if (regionCur === '$') {
+            setPrice(watch.price + 200);
+        } else {
+            setPrice(watch.price);
+        }
+    }, [regionCur, watch.price]);
+
     return (
         <div className="popup white-gold-0deg">
             <div className="popup-content">
@@ -12,7 +24,10 @@ function Popup({ watch, onClose }) {
                     <h2>Watch Added to Basket</h2>
                     <p>{watch.collection}</p>
                     <p>{watch.name}</p>
-                    <p>{watch.price}$</p>
+                    <p>{price.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    })} {regionCur}</p>
                     <Link to='/basket'>
                         <button>Show in basket</button>
                     </Link>

@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { Red1, Red2, Red3, ShoppingBag } from '../assets';
 import './collections.css';
 
-function RedCollection ({ regionCur, setWatchId }) {
+function RedCollection ({ regionCur, setWatchId, handleCurChange }) {
     const handleWatchId = (id) => {
         setWatchId(id);
     }
+
 
     return (
         <div className='collection-card black-to-red-180deg'>
@@ -22,7 +23,7 @@ function RedCollection ({ regionCur, setWatchId }) {
                                 <p className='collection-name red-white-font'>NTL Red Collection</p>
                                 <p className='watch-name red-white-font'>Red Posh</p>
                             </div>
-                            <p className='red-white-font' id='collect-price'>{regionCur}899</p>
+                            <p className='red-white-font' id='collect-price'>{regionCur}{handleCurChange(899)}</p>
                         </div>
                     </div>
                 </div>
@@ -36,7 +37,7 @@ function RedCollection ({ regionCur, setWatchId }) {
                                 <p className='collection-name red-white-font'>NTL Red Collection</p>
                                 <p className='watch-name red-white-font'>RedEye</p>
                             </div>
-                            <p className='red-white-font' id='collect-price'>{regionCur}999</p>
+                            <p className='red-white-font' id='collect-price'>{regionCur}{handleCurChange(999)}</p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +51,7 @@ function RedCollection ({ regionCur, setWatchId }) {
                                 <p className='collection-name red-white-font'>NTL Red Collection</p>
                                 <p className='watch-name red-white-font'>RedSteel</p>
                             </div>
-                            <p className='red-white-font' id='collect-price'>{regionCur}1099</p>
+                            <p className='red-white-font' id='collect-price'>{regionCur}{handleCurChange(1099)}</p>
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,7 @@ function HomePage ({ setWatchId }) {
         // Function to fetch all watches from the server
         const fetchWatches = async () => {
             try {
-                const response = await axios.get('http://watchapi.nexttolast.online:7533/watches');
+                const response = await instance.get('/watches');
                 setWatches(response.data);
             } catch (error) {
                 console.error('Error fetching watches:', error);
@@ -38,7 +38,7 @@ function HomePage ({ setWatchId }) {
         }
         try {
             // Send the watch ID to the server to add it to the basket
-            const response = await axios.post('http://watchapi.nexttolast.online:7533/basket/add', { id: watchId });
+            const response = await instance.post('/basket/add', { id: watchId });
             console.log('Watch added to basket:', response.data.watch);
 
             // Find the added watch details
@@ -59,12 +59,20 @@ function HomePage ({ setWatchId }) {
         setPopup({ show: false, watch: null });
     };
 
+    const handleCurChange = (P) => {
+        if (regionCur === '€') {
+            return P;
+        }else {
+            return P + 200;
+        }
+    }
+
     return (
         <>
             <Header />
-            <RedCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} />
-            <GreenCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} />
-            <BlueCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} />
+            <RedCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} handleCurChange={handleCurChange} />
+            <GreenCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} handleCurChange={handleCurChange} />
+            <BlueCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} handleCurChange={handleCurChange} />
             <Footer />
             {popup.show && <Popup watch={popup.watch} onClose={handleClosePopup} />}
         </>

@@ -1,0 +1,83 @@
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.image-modal-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top of the container */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure the image fits within the container */
+    cursor: pointer;
+}
+
+.close-button-img {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 900;
+    font-family: "Nunito", sans-serif;
+    cursor: pointer;
+    color: #ff9900;
+    z-index: 1000;
+}
+
+.image-container::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+/* Track */
+.image-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Handle */
+.image-container::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+.image-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar handle on hover */
+}
+
+
+@media screen and (max-width: 700px) {
+    .image-modal-content {
+        width: 90%;
+        height: 90%;
+    }
+
+    .close-button-img {
+        top: 5px;
+        right: 5px;
+        font-size: 1.5rem;
+    }
+}

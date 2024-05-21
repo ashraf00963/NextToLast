@@ -25,6 +25,7 @@ import Americanexpress from './american-express.png';
 import Visa from './visa.png';
 import UserIcon from './user-gold.png';
 import Exchange from './exchange.png';
+import Money from './money.png';
 
 export {
     Video,
@@ -54,4 +55,5 @@ export {
     Americanexpress,
     UserIcon,
     Exchange,
+    Money,
 };

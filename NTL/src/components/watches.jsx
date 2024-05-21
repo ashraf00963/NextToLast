@@ -1,63 +1,108 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "./footer";
 import Popup from "./popup";
 import { BasketContext } from "./BasketContext";
 import './watches.css';
+import { AuthContext } from "./AuthContext";
+import ImageModal from "./imageModal";
 
 function Watches({ watchId }) {
     const [watch, setWatch] = useState({});
+    const [priceW, setPriceW] = useState('');
     const { addToBasket } = useContext(BasketContext);
+    const { regionCur } = useContext(AuthContext);
     const [popup, setPopup] = useState({ show: false, watch: null });
-    const [isAddingToBasket, setIsAddingToBasket] = useState(false); // Add state to track if adding to basket is in progress
+    const [isAddingToBasket, setIsAddingToBasket] = useState(false);
+    const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
-    const fetchWatch = async (watchId) => {
+    const navigate = useNavigate();
+
+    // Fetch watch data based on watchId
+    const fetchWatch = async (id) => {
         try {
-            const response = await axios.get(`http://watchapi.nexttolast.online:7533/watches/${watchId}`);
-            setWatch(response.data);
+            const response = await axios.get(`http://watchapi.nexttolast.online:7533/watches/${id}`);
+            const fetchedWatch = response.data;
+            setWatch(fetchedWatch);
+            updatePrice(fetchedWatch.price, regionCur);
         } catch (error) {
             console.error('Error fetching watch:', error);
         }
     };
-    
-    const handleAddToBasket = async (watchId) => {
-        if (isAddingToBasket) return; // If adding to basket is already in progress, exit the function
-        
-        try {
-            setIsAddingToBasket(true); // Set adding to basket in progress
 
-            // Send the watch ID to the server to add it to the basket
-            const response = await axios.post('http://watchapi.nexttolast.online:7533/basket/add', { id: watchId });
+    // Update the displayed price based on the region currency
+    const updatePrice = (price, region) => {
+        if (region === '$') {
+            setPriceW(price + 200);
+        } else {
+            setPriceW(price);
+        }
+    };
+
+    // Handle adding watch to basket
+    const handleAddToBasket = async (id) => {
+        if (isAddingToBasket) return;
+
+        try {
+            setIsAddingToBasket(true);
+            const response = await axios.post('http://watchapi.nexttolast.online:7533/basket/add', { id });
             console.log('Watch added to basket:', response.data.watch);
 
-            // Show popup with the added watch details
             setPopup({ show: true, watch });
 
-            // Update the basket context
             addToBasket(response.data.watch);
         } catch (error) {
             console.error('Error adding watch to basket:', error);
         } finally {
-            setIsAddingToBasket(false); // Reset adding to basket status
+            setIsAddingToBasket(false);
         }
     };
 
+    // Handle popup close
     const handleClosePopup = () => {
         setPopup({ show: false, watch: null });
     };
 
+    // Save watchId to localStorage
+    const saveWatchIdToLocalStorage = (id) => {
+        localStorage.setItem('watchId', id);
+    };
+
+    // Retrieve watchId from localStorage
+    const getWatchIdFromLocalStorage = () => {
+        return localStorage.getItem('watchId');
+    };
+
+    // Fetch watch data when watchId changes or on component mount
     useEffect(() => {
-        if (watchId) {
-            fetchWatch(watchId);
+        const storedWatchId = getWatchIdFromLocalStorage();
+        const idToFetch = watchId || storedWatchId;
+
+        if (idToFetch) {
+            fetchWatch(idToFetch);
+            saveWatchIdToLocalStorage(idToFetch);
         }
     }, [watchId]);
 
-    const price = watch.price;
+    // Update price when region currency changes
+    useEffect(() => {
+        if (watch.price) {
+            updatePrice(watch.price, regionCur);
+        }
+    }, [regionCur, watch.price]);
 
     return (
         <div className="watches-page">
-            <div className="watch-page black-gold-90deg">
-                <img src={`http://watchapi.nexttolast.online:7533${watch.img}`} alt="ntl watch" />
+            <button className="go-back-btn" onClick={() => navigate('/')}>{'<'}</button>
+            <div className="watch-page black-red-0deg">
+                {watch.img && 
+                    <img 
+                        src={`http://watchapi.nexttolast.online:7533${watch.img}`} 
+                        alt="ntl watch" 
+                        onClick={() => setIsImageModalOpen(true)} // Open modal on image click
+                    />
+                }
                 <div className="watch-page-info">
                     <div className="watch-page-headers">
                         <h3>{watch.collection}</h3>
@@ -65,14 +110,19 @@ function Watches({ watchId }) {
                         <p>{watch.description}</p>
                     </div>
                     <div className="watch-page-price">
-                        {price &&
-                        <p className="green-white-font">{price.toLocaleString('en-US', {
+                        {watch.price &&
+                        <p className="green-white-font">{priceW.toLocaleString('en-US', {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
-                            })} $</p>
+                        })} {regionCur}</p>
                         }
                         <p id="inta">INCL. TAX.</p>
-                        <button onClick={() => handleAddToBasket(watchId)} disabled={isAddingToBasket}>Add to basket</button> {/* Disable button if adding to basket is in progress */}
+                        <button 
+                            onClick={() => handleAddToBasket(watch.id)} 
+                            disabled={isAddingToBasket}
+                        >
+                            {isAddingToBasket ? 'Adding...' : 'Add to basket'}
+                        </button>
                     </div>
                     <div className="watch-page-features">
                         <div className="first-feat">
@@ -88,6 +138,7 @@ function Watches({ watchId }) {
             </div>
             <Footer />
             {popup.show && <Popup watch={popup.watch} onClose={handleClosePopup} />}
+            {isImageModalOpen && <ImageModal imgSrc={`http://watchapi.nexttolast.online:7533${watch.img}`} onClose={() => setIsImageModalOpen(false)} />}
         </div> 
     );
 }

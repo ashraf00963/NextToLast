@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [userId, setUserId] = useState(null);
-    const [regionCur, setRegionCur] = useState('$');
+    const [regionCur, setRegionCur] = useState('€');
 
     useEffect(() => {
         // Check if user is already logged in
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
                 localStorage.setItem('region', data.address.region);
                 console.log('Region currency set:', data.address.region);
             } else {
-                setRegionCur('$');
+                setRegionCur('€');
                 localStorage.removeItem('region');
                 console.log('Region currency set to default: $');
             }
@@ -115,7 +115,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ loggedIn, setLoggedIn, userId, logout, regionCur, handleDollerRegionChange, handleEuroRegionChange }}>
+        <AuthContext.Provider value={{ loggedIn, setLoggedIn, userId, logout, regionCur, setRegionCur, handleDollerRegionChange, handleEuroRegionChange }}>
             {children}
         </AuthContext.Provider>
     );

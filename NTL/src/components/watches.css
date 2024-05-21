@@ -12,9 +12,22 @@
     
 }
 
+.go-back-btn {
+    border: none;
+    border-radius: 5rem;
+    margin: 0.5rem;
+    background-color: #52434328;
+    color: #ff9900;
+    padding: 0.2rem 0.6rem;
+    padding-right: 0.7rem;
+    padding-top: 0.3rem;
+    font-size: 1.5rem;
+    z-index: 1000;
+    position: fixed;
+}
+
 .watch-page img {
-    border: 2px solid #ff9900;
-    border-radius: 0.8rem;
+    border: 2px solid #525252;
     width: 40%;
     height: 0%;
 }
@@ -111,6 +124,13 @@
 .watch-page-price button:active {
     padding: 0.3rem;
     margin-top: 2.4rem;
+}
+
+.watch-page-price img {
+    width: 8%;
+    border: none;
+    align-self: flex-end;
+    position: relative;
 }
 
 .watch-page-features {

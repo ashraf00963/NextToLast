@@ -12,6 +12,21 @@
     width: 100%;
 }
 
+.ntl__menu-bar {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.ntl__menu-bar img {
+    width: 30px;
+    margin-left: 0.5rem;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
 .ntl__menu-bar button {
     border: 1px solid #ff9900;
     border-radius: 1rem;
@@ -36,6 +51,7 @@
 
 .ntl__side-bar.show {
     transform: translateX(0);
+    margin-top: 3rem;
 }
 
 .sidebar__button-container {
@@ -93,10 +109,8 @@
 
 .ntl__logo h1 {
     text-align: center;
-    margin-top: 1.2rem;
-    margin-bottom: 0.8rem;
     font-family: "Nunito", sans-serif;
-    margin-left: 2.5rem;
+    margin: 1.2rem 0;
 }
 
 .ntl__two-logos {
@@ -220,7 +234,7 @@
     .ntl__navbar h1 {
         margin-left: center;
         text-align: center;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
     }
 
     .ntl__side-bar {
@@ -270,14 +284,17 @@
         border: 1px solid #fff;
         text-align: center;
     }
+
+    .ntl__menu-bar img {
+        width: 25px;
+    }
 }
 
 
 @media screen and (max-width: 350px) {
     .ntl__logo h1 {
-        margin: 1rem;
-        margin-right: 0;
-        font-size: 1.2rem;
+        margin: 1rem 0;
+        font-size: 1.5rem;
     }
 
     .ntl__menu-bar button {
@@ -287,7 +304,7 @@
 
     .menu-toggle {
        width: 20px;
-       height: 20px;
+       height: fit-content;
        font-size: 1.4rem;
     }
 
@@ -307,12 +324,16 @@
 
     #user-icon_img img {
         width: 20px;
+        padding-top: 0.5rem;
     }
 
     .bag-toggle img {
         width: 20px;
-        padding-top: 0.4rem;
-        padding-right: 0.2rem;
+        padding-top: 0.5rem;
+        padding-right: 0.25rem;
+    }
+    .basket-count {
+        margin-right: 0.1rem;
     }
 
     .sidebar__button-container p {
@@ -326,6 +347,10 @@
     .sidebar__button-container li {
         font-size: 1rem;
         padding: 0.4rem;
+    }
+
+    .ntl__menu-bar img {
+        width: 18px;
     }
 }
 
