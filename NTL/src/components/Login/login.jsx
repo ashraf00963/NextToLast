@@ -23,7 +23,7 @@ function Login () {
         e.preventDefault();
     
         try {  
-            const response = await fetch('http://auth.nexttolast.online:7532/login', {
+            const response = await fetch('https://auth.nexttolast.store/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

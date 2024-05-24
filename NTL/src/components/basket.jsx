@@ -15,11 +15,11 @@ function Basket() {
     const [checkoutStatus, setCheckoutStatus] = useState({ success: false, message: '' });
 
     const instance = axios.create({
-        baseURL: 'http://watchapi.nexttolast.online:7533',
+        baseURL: 'https://auth.nexttolast.store',
     });
 
     const anotherInstance = axios.create({
-        baseURL: 'http://auth.nexttolast.online:7532',
+        baseURL: 'https://auth.nexttolast.store',
     });
 
     anotherInstance.interceptors.request.use(
@@ -159,7 +159,7 @@ function Basket() {
                         {basketItems.map(item => (
                             <li className='basket-item' key={item.id}>
                                 <button className="remove-watch" onClick={() => handleRemoveWatchBtn(item)}>X</button>
-                                <img className='basket-watch-img' src={`http://watchapi.nexttolast.online:7533${item.img}`} alt='watch' />
+                                <img className='basket-watch-img' src={`https://auth.nexttolast.store${item.img}`} alt='watch' />
                                 <div className='item-details'>
                                     <div className='watch-collection'>{item.collection}</div>
                                     <div className='watch-name'>{item.name}</div>

@@ -1,0 +1,164 @@
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    
+}
+
+.admin-login {
+    background-color: #ff000062;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 8rem;
+    border: 1px solid #ff0000;
+    border-radius: 2rem;
+}
+
+.admin-login h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #ffbb00;
+    font-weight: 800;
+    font-family: "Merienda", cursive;
+}
+
+.admin-login input {
+    margin: 0rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #ff0000;
+    background-color: #000;
+    border-radius: 0.35rem;
+    color: #ff0000;
+    font-family: "Nunito", sans-serif;
+    outline: none;
+}
+
+.admin-login button {
+    border: 1px solid #ff0000;
+    border-radius: 2rem;
+    padding: 0.2rem 1rem;
+    margin: 1rem 0;
+    background-color: #ff000062;
+    color: #fdfdfd;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+}
+
+.admin-page-children {
+    background-color: #ff000062;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 8rem;
+    border: 1px solid #ff0000;
+    border-radius: 2rem;
+}
+
+.admin-page-children h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #ffbb00;
+    font-weight: 800;
+    font-family: "Merienda", cursive;
+}
+
+.admin-page-children button {
+    border: 1px solid #ff0000;
+    border-radius: 2rem;
+    padding: 0.2rem 0.5rem;
+    background-color: #ff000062;
+    color: #fdfdfd;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+}
+
+.admin-page-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.admin-page-fields input {
+    margin: 0rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #ff0000;
+    background-color: #000;
+    border-radius: 0.35rem;
+    color: #ff0000;
+    font-family: "Nunito", sans-serif;
+    outline: none;
+}
+
+.admin-page-fields textarea {
+    margin: 0rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #ff0000;
+    background-color: #000;
+    border-radius: 0.35rem;
+    color: #ff0000;
+    font-family: "Nunito", sans-serif;
+    outline: none;
+}
+
+.upload-img-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.upload-img-file button {
+    border: 1px solid #ff9900;
+    border-radius: 2rem;
+    padding: 0.2rem 0.5rem;
+    margin-top: 1rem;
+    background-color: #ffc40046;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+}
+
+
+#img-file-input {
+    width: 230px;
+    border: 0;
+    border: 1px solid #ff9900;
+    background-color: #ffc40046;
+    color: #000;
+}
+
+
+@media screen and (max-width: 600px) {
+    .admin-page {
+        margin-top: 4rem;
+        width: 100%;
+        height: 100vh;
+        background-color: #ff000062;
+        justify-content: start;
+    }
+
+    .admin-page-children {
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        margin-top: 5rem;
+        padding: 0;
+    }
+
+    .admin-page-children h1 {
+        font-size: 2rem;
+    }
+
+    .admin-page-fields input {
+        margin-bottom: 0.5rem;
+    }
+}

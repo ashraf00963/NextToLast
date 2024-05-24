@@ -25,7 +25,7 @@ function Payment () {
 
 
     const instance = axios.create({
-        baseURL: 'http://watchapi.nexttolast.online:7533',
+        baseURL: 'https://auth.nexttolast.store',
     });
 
 

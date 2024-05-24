@@ -1,17 +1,10 @@
-import { Navbar, Login, Register } from './components';
+import { Navbar, Login, Register, Basket, Account, Watches, ScrollToTop, Delivery, Payment, Confirmation, ComingSoon, Admin } from './components';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import { AuthProvider } from './components/AuthContext';
+import { BasketProvider } from './components/BasketContext';
 import HomePage from './Home';
 import './App.css';
-import { useState } from 'react';
-import Basket from './components/basket';
-import Account from './components/Login/account';
-import Watches from './components/watches';
-import { BasketProvider } from './components/BasketContext';
-import ScrollToTop from './components/scrollToTop';
-import Delivery from './components/delivery';
-import Payment from './components/payment';
-import Confirmation from './components/confirm';
 
 
 function App() {
@@ -33,6 +26,8 @@ function App() {
                 <Route path='/delivery' element={<Delivery />} />
                 <Route path='/payment' element={<Payment />} />
                 <Route path='/confirmation' element={<Confirmation />} />
+                <Route path='/coming-soon' element={<ComingSoon />} />
+                <Route path='/admin' element={<Admin />} />
               </Routes>
         </Router>
       </BasketProvider>

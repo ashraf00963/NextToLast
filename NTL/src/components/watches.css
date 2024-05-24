@@ -30,6 +30,15 @@
     border: 2px solid #525252;
     width: 40%;
     height: 0%;
+    position: relative;
+}
+
+#watch-pag-img-mag{
+    position: absolute;
+    width: 1.5%;
+    height: fit-content;
+    border: 0;
+    margin: 1rem;
 }
 
 .watch-page-info {
@@ -199,7 +208,6 @@
     .watch-page {
         padding: 0;
         flex-direction: column;
-        
     }
 
     .watch-page img {
@@ -207,6 +215,11 @@
         border: 1px solid #0e1416;
         align-self: center;
         border-radius: 0;
+    }
+
+    #watch-pag-img-mag {
+        width: 3%;
+        right: 1%;
     }
 
     .watch-page-headers {
@@ -290,11 +303,15 @@
     .watch-page-features p {
         font-size: 1rem
     }
+
+    #watch-pag-img-mag {
+        width: 5%;
+    }
 }
 
 @media screen and (max-width: 310px) {
-    .watch-page img {
-        margin-top: -2rem;
+    .watches-page {
+        margin-top: 4rem;
     }
     .watch-page-info {
         padding: 0.8rem;

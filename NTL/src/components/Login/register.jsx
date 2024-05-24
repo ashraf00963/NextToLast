@@ -68,7 +68,7 @@ function Register() {
         }
 
         try {
-            const response = await fetch('http://auth.nexttolast.online:7532/register', {
+            const response = await fetch('https://auth.nexttolast.store/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

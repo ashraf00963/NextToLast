@@ -7,6 +7,7 @@ import { BasketContext } from "./BasketContext";
 import './watches.css';
 import { AuthContext } from "./AuthContext";
 import ImageModal from "./imageModal";
+import { Mag } from "../assets";
 
 function Watches({ watchId }) {
     const [watch, setWatch] = useState({});
@@ -19,10 +20,9 @@ function Watches({ watchId }) {
 
     const navigate = useNavigate();
 
-    // Fetch watch data based on watchId
     const fetchWatch = async (id) => {
         try {
-            const response = await axios.get(`http://watchapi.nexttolast.online:7533/watches/${id}`);
+            const response = await axios.get(`https://auth.nexttolast.store/watches/${id}`);
             const fetchedWatch = response.data;
             setWatch(fetchedWatch);
             updatePrice(fetchedWatch.price, regionCur);
@@ -31,7 +31,6 @@ function Watches({ watchId }) {
         }
     };
 
-    // Update the displayed price based on the region currency
     const updatePrice = (price, region) => {
         if (region === '$') {
             setPriceW(price + 200);
@@ -40,13 +39,12 @@ function Watches({ watchId }) {
         }
     };
 
-    // Handle adding watch to basket
     const handleAddToBasket = async (id) => {
         if (isAddingToBasket) return;
 
         try {
             setIsAddingToBasket(true);
-            const response = await axios.post('http://watchapi.nexttolast.online:7533/basket/add', { id });
+            const response = await axios.post('https://auth.nexttolast.store/basket/add', { id });
             console.log('Watch added to basket:', response.data.watch);
 
             setPopup({ show: true, watch });
@@ -59,22 +57,18 @@ function Watches({ watchId }) {
         }
     };
 
-    // Handle popup close
     const handleClosePopup = () => {
         setPopup({ show: false, watch: null });
     };
 
-    // Save watchId to localStorage
     const saveWatchIdToLocalStorage = (id) => {
         localStorage.setItem('watchId', id);
     };
 
-    // Retrieve watchId from localStorage
     const getWatchIdFromLocalStorage = () => {
         return localStorage.getItem('watchId');
     };
 
-    // Fetch watch data when watchId changes or on component mount
     useEffect(() => {
         const storedWatchId = getWatchIdFromLocalStorage();
         const idToFetch = watchId || storedWatchId;
@@ -85,7 +79,6 @@ function Watches({ watchId }) {
         }
     }, [watchId]);
 
-    // Update price when region currency changes
     useEffect(() => {
         if (watch.price) {
             updatePrice(watch.price, regionCur);
@@ -97,11 +90,15 @@ function Watches({ watchId }) {
             <button className="go-back-btn" onClick={() => navigate('/')}>{'<'}</button>
             <div className="watch-page black-red-0deg">
                 {watch.img && 
+                    <>
                     <img 
-                        src={`http://watchapi.nexttolast.online:7533${watch.img}`} 
+                        src={`https://auth.nexttolast.store${watch.img}`} 
                         alt="ntl watch" 
                         onClick={() => setIsImageModalOpen(true)} // Open modal on image click
                     />
+                    <img src={Mag} alt="magni" id="watch-pag-img-mag" />
+                    
+                    </>
                 }
                 <div className="watch-page-info">
                     <div className="watch-page-headers">
@@ -138,7 +135,7 @@ function Watches({ watchId }) {
             </div>
             <Footer />
             {popup.show && <Popup watch={popup.watch} onClose={handleClosePopup} />}
-            {isImageModalOpen && <ImageModal imgSrc={`http://watchapi.nexttolast.online:7533${watch.img}`} onClose={() => setIsImageModalOpen(false)} />}
+            {isImageModalOpen && <ImageModal imgSrc={`https://auth.nexttolast.store${watch.img}`} onClose={() => setIsImageModalOpen(false)} />}
         </div> 
     );
 }

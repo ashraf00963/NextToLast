@@ -26,7 +26,7 @@ function Delivery () {
     useEffect(() => {
         const fetchUserEmail = async () => {
             try {
-                const response = await fetch(`http://auth.nexttolast.online:7532/account/email/${userId}`);
+                const response = await fetch(`https://auth.nexttolast.store/account/email/${userId}`);
                 if (response.ok) {
                     const { email } = await response.json();
                     setEmail(email);
@@ -40,7 +40,7 @@ function Delivery () {
     
         const fetchUserAddress = async () => {
             try {
-                const response = await fetch(`http://auth.nexttolast.online:7532/account/address/${userId}`);
+                const response = await fetch(`https://auth.nexttolast.store/account/address/${userId}`);
                 if (response.ok) {
                     const { street, postalcode, city, country } = await response.json();
                     setStreet(street);

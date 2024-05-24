@@ -1,0 +1,64 @@
+.coming-soon-page {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.coming-soon-content {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: center;
+    background-color: #6b478054;
+    padding: 5rem;
+    border-radius: 1rem;
+}
+
+.coming-soon-page img {
+    width: 40%;
+    height: auto;
+}
+
+.coming-soon-page h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 6rem;
+    font-family: "Merienda", cursive;
+    
+}
+
+.coming-soon-content button {
+    margin: 0;
+    margin-top: 4rem;
+    background-color: #6b478054;
+    border: 1px solid #8200ce;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+}
+
+.coming-soon-content button a {
+    text-decoration: none;
+    color: #b19ff5;
+    font-family: "Nunito", sans-serif;
+}
+
+@media screen and (max-width: 700px) {
+    .coming-soon-page {
+        margin: 0;
+        height: 100vh;
+        background-color: #6b478054;
+        align-items: flex-start;
+    }
+
+    .coming-soon-page h2 {
+        font-size: 3rem;
+    }
+
+    .coming-soon-content {
+        padding: 0;
+        background-color: transparent;
+        margin-top: 10rem;
+    }
+}

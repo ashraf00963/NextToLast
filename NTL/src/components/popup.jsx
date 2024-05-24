@@ -19,7 +19,7 @@ function Popup({ watch, onClose }) {
         <div className="popup white-gold-0deg">
             <div className="popup-content">
                 <button className="close-button" onClick={onClose}>X</button>
-                <img src={`http://watchapi.nexttolast.online:7533${watch.img}`} alt={watch.name} />
+                <img src={`https://auth.nexttolast.store${watch.img}`} alt={watch.name} />
                 <div className='popup-info'>
                     <h2>Watch Added to Basket</h2>
                     <p>{watch.collection}</p>

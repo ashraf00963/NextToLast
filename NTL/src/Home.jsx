@@ -14,7 +14,7 @@ function HomePage ({ setWatchId }) {
     const { regionCur } = useContext(AuthContext);
 
     const instance = axios.create({
-        baseURL: 'http://watchapi.nexttolast.online:7533',
+        baseURL: 'https://auth.nexttolast.store',
     });
 
     useEffect(() => {

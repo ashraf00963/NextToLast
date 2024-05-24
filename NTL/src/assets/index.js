@@ -26,6 +26,8 @@ import Visa from './visa.png';
 import UserIcon from './user-gold.png';
 import Exchange from './exchange.png';
 import Money from './money.png';
+import Maintenance from './web-maintenance.png';
+import Mag from './magnifying-glass.png';
 
 export {
     Video,
@@ -56,4 +58,6 @@ export {
     UserIcon,
     Exchange,
     Money,
+    Maintenance,
+    Mag,
 };
