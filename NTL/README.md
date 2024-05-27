@@ -18,7 +18,7 @@ Basket Phases: Our basket follows a structured flow, guiding users through four 
 Interactive Header: Enjoy a fully functioning watch displayed prominently in the header, allowing users to explore its features and design.
 Company Information: Learn more about us, including our headquarters location, office photos, and warehouse details, providing transparency and credibility to our brand.
 Usage
-The NTL Watches website is already live and hosted on our servers. You can visit www.ntlwatches.com to explore the website and its features. If you have any questions or feedback, please contact our customer support team.
+The NTL Watches website is already live and hosted on our servers. You can visit www.nexttolast.store to explore the website and its features. If you have any questions or feedback, please contact our customer support team.
 
 Contributing
 We welcome contributions to improve the NTL Watches website. Whether it's frontend enhancements, backend optimizations, or UX improvements, we value collaboration and innovation. If you'd like to contribute, please reach out to our development team for guidance and assistance.
