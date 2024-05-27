@@ -1,3 +1,5 @@
+![NTL logo](NTL/src/assets/NTL-logo5.png)
+
 # Next To Last Watches Store
 
 Welcome to the NTL Watches store repository! This repository contains the source code for our fully functional and responsive e-commerce website specializing in luxury watches and jewelry.
