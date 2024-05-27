@@ -1,4 +1,4 @@
-![NTL logo](NTL/src/assets/NTL-logo5.png)
+<img src="NTL/src/assets/NTL-logo5.png" alt="NTL logo" width="200"/>
 
 # Next To Last Watches Store
 
