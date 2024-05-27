@@ -128,12 +128,14 @@ function Basket() {
     const navigate = useNavigate();
 
     const handleCheckOut = () => {
-        const totalPrice1 = calculateTotalPrice();
-        navigate('/delivery', { state: { totalPrice1 }});
-
-        setCheckoutStatus({ success: true, message: `Thank you for your purchase with the total of ${regionCur}${totalPrice.toFixed(2)}. The order will be delivered shortly to ${joinedDelivery}.` });
+        if (basketItems.length === 0) {
+            alert('Your basket is empty. Check out our collections!');
+        } else {
+            const totalPrice1 = calculateTotalPrice();
+            navigate('/delivery', { state: { totalPrice1 }});
+        }
     };
-
+    
     const calculateItemPrice = (price) => {
         return regionCur === '$' ? price + 200 : price;
     };
@@ -168,7 +170,10 @@ function Basket() {
                                         <div className='watch-quantity'>{item.quantity}</div>
                                         <button className='add-button' onClick={() => handleAddToBasket(item)}>+</button>
                                     </div>
-                                    <div className='watch-price'>{regionCur}{calculateItemPrice(item.price).toFixed(2)}</div>
+                                    <div className='watch-price'>{regionCur}{item.price.toLocaleString('en-US', {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    })}</div>
                                 </div>
                             </li>
                         ))}

@@ -88,6 +88,10 @@
     transition: background 0.3s ease;
 }
 
+#dec-text {
+    padding: 10px;
+}
+
 .home-button button:hover {
   background-color: #000;
 }

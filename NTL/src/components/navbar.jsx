@@ -55,9 +55,7 @@ function Navbar() {
                             <span className='nav-btn'>{isOpen === 'section1' ? '-' : '+'}</span>
                         </div>
                         <ul className={`sidebar__lists ${isOpen === 'section1' ? 'isOpen' : ''}`}>
-                            <Link to='/coming-soon' onClick={() => setIsSidebarOpen(false)}><li>Find Your NTL</li></Link>
-                            <Link to='/coming-soon' onClick={() => setIsSidebarOpen(false)}><li>Men Watches</li></Link>
-                            <Link to='/coming-soon' onClick={() => setIsSidebarOpen(false)}><li>Women Watches</li></Link>
+                            <Link to='/watcheslist' onClick={() => setIsSidebarOpen(false)}><li>Find Your NTL</li></Link>
                         </ul>
                     </div>
                     <div className='sidebar__button-container'>
@@ -73,17 +71,15 @@ function Navbar() {
                     </div>
                     <div className='sidebar__button-container'>
                         <div className='sidebar__button' onClick={() => toggleIsOpen('section3')}>
-                            <p>Accessories</p>
+                            <p>Find</p>
                             <span className='nav-btn'>{isOpen === 'section3' ? '-' : '+'}</span>
                         </div>
                         <ul className={`sidebar__lists ${isOpen === 'section3' ? 'isOpen' : ''}`}>
-                            <Link to='/coming-soon' onClick={() => setIsSidebarOpen(false)}><li>Purses</li></Link>
-                            <Link to='/coming-soon' onClick={() => setIsSidebarOpen(false)}><li>Scarves</li></Link>
-                            <Link to='/coming-soon' onClick={() => setIsSidebarOpen(false)}><li>Belts</li></Link>
+                            <Link to='/about-us' onClick={() => setIsSidebarOpen(false)}><li>About Us</li></Link>
+                            <Link to='/customer-support' onClick={() => setIsSidebarOpen(false)}><li>Customer Support Form</li></Link>
                         </ul>
                     </div>
                 </div>
-                <img src={Money} onClick={handleRegionChange} />
             </div>
             <div className='ntl__logo yellow-to-gray-90deg'>
                 <Link to='/' onClick={() => setIsSidebarOpen(false)}>

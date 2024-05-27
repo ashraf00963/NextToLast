@@ -5,6 +5,7 @@ import Popup from './components/popup';
 import { BasketContext } from './components/BasketContext';
 import './App.css';
 import { AuthContext } from './components/AuthContext';
+import NewCollection from './components/newCollection';
 
 
 function HomePage ({ setWatchId }) {
@@ -73,6 +74,7 @@ function HomePage ({ setWatchId }) {
             <RedCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} handleCurChange={handleCurChange} />
             <GreenCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} handleCurChange={handleCurChange} />
             <BlueCollection addToBasket={handleAddToBasket} setWatchId={setWatchId} regionCur={regionCur} handleCurChange={handleCurChange} />
+            <NewCollection setWatchId={setWatchId} regionCur={regionCur} />
             <Footer />
             {popup.show && <Popup watch={popup.watch} onClose={handleClosePopup} />}
         </>

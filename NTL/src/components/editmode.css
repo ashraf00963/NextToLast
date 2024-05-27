@@ -1,0 +1,80 @@
+.edit-api-page {
+    padding: 20px;
+    margin-top: 4rem;
+    color: #ccc;
+    background-color: #8c00ff38;
+    height: 100%;
+    font-family: "Nunito", sans-serif;
+}
+
+.edit-api-page h1 {
+    color: #8c00ff;
+}
+
+.watch-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.watch-list li {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+.watch-list li:hover {
+    background-color: #8c00ff;
+}
+
+.watch-list li:active {
+    background-color: #ff0000;
+}
+
+.edit-watch {
+    margin-top: 20px;
+}
+
+.edit-watch h2 {
+    margin-top: 5rem;
+    color: #8c00ff;
+}
+
+.edit-watch input, .edit-watch textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.edit-watch button {
+    padding: 10px 20px;
+    background-color: #d400ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.edit-watch button:hover {
+    background-color: #8c00ff;
+}
+
+.edit-watch button:active {
+    background-color: #ff0000;
+}
+
+.error {
+    color: #ff0000;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.message {
+    color: #ea00ff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: -0.5rem;
+}

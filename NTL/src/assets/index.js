@@ -24,10 +24,22 @@ import Paysafe from './pay-safe.png';
 import Americanexpress from './american-express.png';
 import Visa from './visa.png';
 import UserIcon from './user-gold.png';
-import Exchange from './exchange.png';
 import Money from './money.png';
 import Maintenance from './web-maintenance.png';
 import Mag from './magnifying-glass.png';
+import FreeDelivery from './free-shipping.png';
+import NTLReturn from './return-box.png';
+import NTLGuarantee from './guarantee.png';
+import SecurePayments from './security-payment.png';
+import NTLlogo from './NTL-logo5.png';
+import NTLhead from './NTL-head.jpg';
+import NTLhead1 from './NTL-head1.jpg';
+import officeNTL from './office-NTL.jpg';
+import NTLwarehouse from './NTL-warehouse.jpg';
+import NTLhead2 from './NTL-head1.jpg';
+import NTLhead3 from './NTL-head2.jpg';
+import NTLwarehouse1 from './NTL-warehouse1.jpg';
+import NTLwarehouse3 from './NTL-warehouse3.jpg';
 
 export {
     Video,
@@ -56,8 +68,20 @@ export {
     Klarna,
     Americanexpress,
     UserIcon,
-    Exchange,
     Money,
     Maintenance,
     Mag,
+    NTLGuarantee,
+    NTLReturn,
+    SecurePayments,
+    FreeDelivery,
+    NTLlogo,
+    officeNTL,
+    NTLhead,
+    NTLhead1,
+    NTLwarehouse,
+    NTLhead2,
+    NTLhead3,
+    NTLwarehouse1,
+    NTLwarehouse3,
 };

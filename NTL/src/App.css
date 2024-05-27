@@ -28,6 +28,7 @@ button, a {
 body {
     margin: auto 12.5rem;
     padding: 0;
+    -webkit-text-size-adjust: 100%;
 }
 
 html::-webkit-scrollbar, body::-webkit-scrollbar {
@@ -78,7 +79,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 
 
-
+.purple-white-font {
+    background: linear-gradient(180deg, #8c00ff 20%, #ffffffb6 60%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
 
 .black-to-red-180deg {
@@ -121,6 +127,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     background: linear-gradient(90deg, #000000 29%, #1F0000 80%);
 }
 
+.black-to-black-180deg {
+    background: linear-gradient(180deg, #0F1417 35%, #0F1417 74%);
+}
+
 .black-red-90deg {
     background: linear-gradient(90deg, #000000 18%, #1F0000 50%);
 }
@@ -146,7 +156,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 .black-red-0deg {
     background: linear-gradient(0deg, #550E12 0%, #000000 35%);
 }
-
+ 
+.black-red-180deg {
+    background: linear-gradient(180deg, #550E12 0%, #000000 35%);
+}
+ 
 .black-blue-180deg {
     background: linear-gradient(180deg, #0F1417 35%, #016AA6 74%);
 }
@@ -157,6 +171,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 .white-gold-0deg {
     background: linear-gradient(180deg, #0F1417 35%, #ff9900 85%);
+}
+
+.black-purple-180deg {
+    background: linear-gradient(180deg, #8c00ffa4 50%, #000000 100%);
 }
 
 .gray-green-gray-font-90deg {
@@ -213,8 +231,8 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     color: transparent; /* Hide the original text */
 }
 
-.purple-white-font {
-    background: linear-gradient(180deg, #8c00ff 35%, #ffffffb6 85%);
+.black-white-black-font-90deg {
+    background: linear-gradient(90deg, #000000 10%, #ffffffb0 60%, #000000 90%);
     -webkit-background-clip: text; /* For Safari */
     background-clip: text;
     color: transparent; /* Hide the original text */

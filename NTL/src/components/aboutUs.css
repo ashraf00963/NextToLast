@@ -1,0 +1,126 @@
+.about-header {
+    position: relative;
+    font-family: "Nunito", sans-serif;
+    padding: 20px;
+    padding-top: 30px;
+    background-color: #2b3e3f65;
+    margin-top: 4rem;
+}
+
+.section-image-container {
+    position: relative;
+    width: 100%;
+    height: 900px; 
+    overflow: hidden;
+    margin-bottom: 50px;
+    background-color: #333;
+}
+
+.section-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    color: #ff0000d0;
+    background-color: #70838349;
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px; /* Adjust margin as needed */
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #2b3e3f65;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-image {
+    width: 100%;
+    max-width: 300px;
+    margin-right: 20px;
+}
+
+.section-text {
+    flex: 1;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff0000a8;
+}
+
+.section p {
+    font-size: 1.2rem;
+    color: #ff7b007e;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-image {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .section-image-container {
+        height: 500px;
+    }
+
+    .section-image-container img {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about-header {
+        padding: 0;
+    }
+
+    .section-image {
+        max-width: 500px;
+    }
+
+    .overlay {
+        width: 80%;
+    }
+}

@@ -3,7 +3,7 @@ import './delivery.css';
 import { AuthContext } from './AuthContext';
 import { BasketContext } from './BasketContext';
 import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Basket from './basket';
 import { Visa, Americanexpress, Maestro, Paypal, Paysafe, Klarna } from '../assets';
 
@@ -106,7 +106,7 @@ function Delivery () {
             <div className='checkout-form'>
                 <h2>Shipping</h2>
                 <div className='checkout-breadcrumbs'>
-                    <p>1. Basket</p>
+                    <Link to='/basket'><p>1. Basket</p></Link>
                     <p id='i-am-here'>2. Shipping</p>
                     <p>3. Payment</p>
                     <p>4. Confirmation</p>
@@ -119,40 +119,40 @@ function Delivery () {
                 </div>
                 <div className='two-fields'>
                     <div className='sec-checkout'>
-                        <input type='text' value={Fname} onChange={(e) => setFname(e.target.value)} placeholder={errors.Fname || 'First name*'} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={Fname} onChange={(e) => setFname(e.target.value)} placeholder={(errors.Fname ? `First name (${errors.Fname})` : 'First name*')}  required className={errors.Fname ? 'error' : ''} />
                     </div> 
                     <div className='sec-checkout'>
-                        <input type='text' value={Lname} onChange={(e) => setLname(e.target.value)} placeholder={errors.Lname || 'Last name*'} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={Lname} onChange={(e) => setLname(e.target.value)} placeholder={(errors.Lname ? `Last name (${errors.Lname})` : 'Last name*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
                 <div className='field'>
                     <div className='sec-checkout'>
-                        <input type='text' value={street} onChange={(e) => setStreet(e.target.value)} placeholder={errors.street || (street ? street : 'Street & housenumber*')} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={street} onChange={(e) => setStreet(e.target.value)}  placeholder={(errors.street ? `Street & housenumber (${errors.street})` : 'Street & housenumber*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
                 <div className='field'>
                     <div className='sec-checkout'>
-                        <input type='text' value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder={errors.postalCode || (postalCode ? postalCode : 'Postal code*')} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder={(errors.postalCode ? `Postal code (${errors.postalCode})` : 'Postal code*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
                 <div className='field'>
                     <div className='sec-checkout'>
-                        <input type='text' value={city} onChange={(e) => setCity(e.target.value)} placeholder={errors.city || (city ? city : 'City*')} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={city} onChange={(e) => setCity(e.target.value)} placeholder={(errors.city ? `City (${errors.city})` : 'City*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
                 <div className='field'>
                     <div className='sec-checkout'>
-                        <input type='text' value={country} onChange={(e) => setCountry(e.target.value)} placeholder={errors.country || (country ? country : 'Country*')} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={country} onChange={(e) => setCountry(e.target.value)} placeholder={(errors.country ? `Country (${errors.country})` : 'Country*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
                 <div className='field'>
                     <div className='sec-checkout'>
-                        <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} placeholder={errors.email || (email ? email : 'email address*')} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} placeholder={(errors.email ? `Email address (${errors.email})` : 'Email address*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
                 <div className='field'>
                     <div className='sec-checkout'>
-                        <input type='text' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder={errors.phoneNumber || 'Phone number*'} required className={errors.Fname ? 'error' : ''} />
+                        <input type='text' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder={(errors.phoneNumber ? `Phone number (${errors.phoneNumber})` : 'Phone number*')} required className={errors.Fname ? 'error' : ''} />
                     </div>
                 </div>
             </div>
@@ -203,7 +203,7 @@ function Delivery () {
                 </div>
             </div>
         </div>
-    )    
+    )  
 };
 
 export default Delivery;

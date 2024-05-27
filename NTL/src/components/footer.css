@@ -1,21 +1,69 @@
 .footer {
     font-family: "Nunito", sans-serif;
+    background-color: #2e525381;
+    color: #fff;
+    padding: 2rem 1rem;
 }
 
-.footer__help {
+.footer__brand, .footer__benefits, .footer__help, .footer__newsletter, .footer__contact, .footer__social, .footer__payment {
+    margin-bottom: 3rem;
+}
+
+.footer__logo {
+    max-width: 150px;
+}
+
+.footer__description {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.footer__benefits {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start;
-
-    background-color: #52434328;
-    padding: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.footer__help p {
+.footer__benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+
+.footer__benefit-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer__benefit p {
+    font-size: 1rem;
+}
+
+.footer__benefit:hover .footer__benefit-logo {
+    color: red;
+}
+
+.footer__section-container {
+    margin-bottom: 0rem;
+}
+
+.footer__section {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+}
+
+.footer__section p {
     font-size: 1.5rem;
     color: #fff;
-    text-shadow: 0px 6px 5px #000;
 }
 
 .btn {
@@ -25,154 +73,190 @@
 .footer__section-list {
     list-style: none;
     padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.footer__section-list.isOpen {
+    max-height: 1000px;
 }
 
 .footer__section-list li {
     margin: 0.5rem;
-    font-size: 1rem;   
-    text-shadow: 0px 6px 5px #000;
+    font-size: 1rem;
 }
 
 .footer__section-list a {
-    display: inline-block;
-    position: relative;
-    padding: 5px;
+    color: #fff;
     text-decoration: none;
-    color: #fff;
     opacity: 0.8;
 }
 
-.footer__section-list a::before {
-    content: '';
-    position: absolute;
-    top: calc(100% - 2px);
-    left: 0;
-    width: 0;
-    height: 2px;
-    transition: width 0.3s ease, background-color 0.3s ease;
+.footer__section-list a:hover {
+    opacity: 1;
 }
 
-.footer__section-list a:hover::before {
-    width: 100%;
-    background-color: #ffffff80;
+.btn {
+    display: block;
 }
 
-.footer__rights {
-    background-color: #52434328;
-    padding: 1rem 1rem 0.5rem 5rem;
+.footer__newsletter h4, .footer__contact h4, .footer__social h4, .footer__payment h4 {
+    font-size: 1.5rem;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-form input {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.newsletter-form button {
+    padding: 0.5rem;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 4px;
     color: #fff;
-
-    background-color: #53666354;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.footer__rights p {
-    opacity: 0.8;
-    font-size: 0.9rem;
-    letter-spacing: 1.1px;
-    text-shadow: 0px 6px 4px #000;
+.newsletter-form button:hover {
+    background-color: #cc7a00;
+}
+
+.footer__contact a {
+    color: #ff9900;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__contact a:hover {
+    color: #cc7a00;
 }
 
 .social-media-icons {
-    display: inline-flex;
-    list-style: none;
-    width: 10%;
-
+    display: flex;
+    justify-content: space-around;
     padding: 0;
-    padding-left: 1rem;
-    margin: 0;
-
+    list-style: none;
+    margin: 0.5rem 0;
 }
 
 .social-media-icons img {
-    width: 80%;
-    height: auto;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
 }
 
-@media screen and (max-width: 700px) {
-    .footer__help {
-        flex-direction: column;
+.social-media-icons img:hover {
+    transform: scale(1.1);
+}
 
+.payment-icons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.payment-icons img {
+    width: 50px;
+    height: auto;
+    margin: 0rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #ff9900;
+}
+
+.footer__rights {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 700px) {
+    .footer__benefits, .footer__help {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__benefit {
+        margin: 1rem 0;
     }
 
     .footer__section-container {
-        margin-bottom: -2rem;
+        width: 100%;
+        margin-bottom: 0rem;
     }
-    
-    .footer__section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        border-bottom: 10px #ffffff;
-        width: 80vw;
+    .footer__section-container li {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer__section {
+        width: 100%;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .footer__section-list {
-        padding: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease;
-        margin-top: 0;
     }
 
     .footer__section-list.isOpen {
-        max-height: 1000px;
-        
+        max-height: 500px;
     }
-    
+
     .btn {
         display: block;
-        color: #fff;
         font-size: 1.5rem;
+        color: #fff;
+    }
+
+    .footer__social, .footer__payment {
+        width: 100%;
+        text-align: center;
+    }
+
+    .payment-icons {
+        justify-content: center;
     }
 
     .footer__rights {
-        margin: 0;
-        padding: 1rem 1rem;
+        margin-top: 1rem;
     }
-
-    .footer__rights p {
-        margin: 1rem;
-        font-size: 0.8rem;
-        padding-left: 1rem;
-    }
-
-    .social-media-icons {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        padding: 0;
-    }
-
-    .social-media-icons li {
-        width: 5rem;
-        height: 5rem;
-    }
-
-    
 }
 
 @media screen and (max-width: 350px) {
-    .social-media-icons {
-        margin-left: 1rem;
-    }
-
-    .footer__rights p {
-        padding-left: 0;
-        margin-right: 0;
-        width: 98%;
-    }
-
-    .footer__help p {
-        margin: 1.2rem 0;
+    .footer__description {
         font-size: 1rem;
     }
 
-    .footer__section-list.isOpen li {
-        font-size: 0.9rem
+    .footer__benefit-logo {
+        width: 40px;
+        height: 40px;
     }
 
     .social-media-icons img {
-        width: 80%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .payment-icons img {
+        width: 40px;
+    }
+
+    .footer__rights {
+        font-size: 0.8rem;
     }
 }

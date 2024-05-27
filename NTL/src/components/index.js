@@ -15,6 +15,10 @@ import Payment from './payment';
 import Confirmation from './confirm';
 import ComingSoon from './coming-soon';
 import Admin from "./admin";
+import WatchesList from "./watchesList";
+import CustomerSupport from "./customer-s";
+import AboutUs from "./aboutUs";
+import EditMode from "./editmode";
 
 export {
     Navbar,
@@ -33,5 +37,9 @@ export {
     Payment,
     Confirmation,
     ComingSoon,
-    Admin
+    Admin,
+    WatchesList,
+    CustomerSupport,
+    AboutUs,
+    EditMode,
 };

@@ -34,7 +34,7 @@
     border: 1px solid #ff9900;
     margin: 0.1rem 0;
     outline: none;
-    width: 97.9%;
+    padding: 10px;
 }
 
 .error::placeholder {
@@ -44,7 +44,7 @@
 .field input {
     padding: 0.3rem 0.15rem;
     font-family: "Nunito", sans-serif;
-
+    padding: 10px;
     background-color: #53666354;
     color: #ff9900;
     border: 1px solid #ff9900;
@@ -73,6 +73,12 @@
 .checkout-breadcrumbs {
     border-bottom: 1px solid #fff;
     margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.checkout-breadcrumbs a {
+    text-decoration: none;
+    color: #fff;
 }
 
 
@@ -87,5 +93,26 @@
         margin: 0 2rem;
         align-self: center;
         margin-bottom: 5rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .checkout-form {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    .field input{
+        padding: 10px;
+    }
+
+    .two-fields input {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 525px){
+    .two-fields input {
+        width: 88%;
     }
 }

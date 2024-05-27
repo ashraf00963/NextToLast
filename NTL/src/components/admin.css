@@ -37,6 +37,20 @@
     color: #ff0000;
     font-family: "Nunito", sans-serif;
     outline: none;
+    padding: 10px;
+}
+
+.edit-mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.edit-mode-btn button.active {
+    background-color: #00ff22;
+    border: #66ff00;
+    color: #000;
 }
 
 .admin-login button {
@@ -48,6 +62,7 @@
     color: #fdfdfd;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
+    padding: 5px 20px;
 }
 
 .admin-page-children {
@@ -77,6 +92,7 @@
     color: #fdfdfd;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
+    padding: 5px 20px;
 }
 
 .admin-page-fields {
@@ -84,8 +100,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-}
+}   
 
 .admin-page-fields input {
     margin: 0rem;
@@ -96,6 +111,7 @@
     color: #ff0000;
     font-family: "Nunito", sans-serif;
     outline: none;
+    padding: 10px;
 }
 
 .admin-page-fields textarea {
@@ -107,6 +123,7 @@
     color: #ff0000;
     font-family: "Nunito", sans-serif;
     outline: none;
+    padding: 10px;
 }
 
 .upload-img-file {
@@ -144,6 +161,17 @@
         height: 100vh;
         background-color: #ff000062;
         justify-content: start;
+    }
+
+    .admin-login {
+        background-color: transparent;
+        border: none;
+        margin-top: 5rem;
+        padding: 0;
+    }
+
+    .admin-login input {
+        padding: 10px;
     }
 
     .admin-page-children {

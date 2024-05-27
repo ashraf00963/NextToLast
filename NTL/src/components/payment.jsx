@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Americanexpress, Klarna, Maestro, Paypal, Paysafe, Visa } from '../assets';
 import './payment.css';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { BasketContext } from './BasketContext';
 
@@ -80,8 +80,8 @@ function Payment () {
             <div className='payment-form'>
                 <h2>Payment Methods</h2>
                 <div className='checkout-breadcrumbs'>
-                    <p>1. Basket</p>
-                    <p>2. Shipping</p>
+                    <Link to='/basket'><p>1. Basket</p></Link>
+                    <Link to='/delivery'><p>2. Shipping</p></Link>
                     <p id='i-am-here'>3. Payment</p>
                     <p>4. Confirmation</p>
                 </div>
